@@ -8,12 +8,14 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
     private Animator animator;
+    private SpriteRenderer spriteRenderer;
 
     void Start()
     {
-        // Get the Rigidbody2D and Animator components
+        // Get the Rigidbody2D, Animator, and SpriteRenderer components
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -27,7 +29,16 @@ public class PlayerMove : MonoBehaviour
 
         // Update the animator parameter to switch between idle and walking animations
         animator.SetBool("isMoving", isMoving);
-        //--add flip( if movement.x = + then keep, if movement.x = - then flip)
+
+        // Flip sprite based on movement.x
+        if (movement.x > 0)
+        {
+            spriteRenderer.flipX = false; // facing right
+        }
+        else if (movement.x < 0)
+        {
+            spriteRenderer.flipX = true; // facing left
+        }
     }
 
     void FixedUpdate()
