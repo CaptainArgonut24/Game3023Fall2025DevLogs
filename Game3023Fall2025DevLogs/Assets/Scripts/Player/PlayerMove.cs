@@ -12,7 +12,7 @@ public class PlayerMove : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     // Trigger the encounter
-    public LayerMask Grass;
+    public LayerMask LayerM;
 
     public float encounterCooldownTime = 2f;
     private float encounterCooldown = 5f;
@@ -55,7 +55,7 @@ public class PlayerMove : MonoBehaviour
     private void EnemyEncounter(bool isMoving)
     {
         if (encounterCooldown <= 0 && isMoving &&
-            Physics2D.OverlapCircle(transform.position, 0.2f, Grass) != null)
+            Physics2D.OverlapCircle(transform.position, 0.2f, LayerM) != null)
         {
             if (Random.Range(1, 101) <= 1)
             {
