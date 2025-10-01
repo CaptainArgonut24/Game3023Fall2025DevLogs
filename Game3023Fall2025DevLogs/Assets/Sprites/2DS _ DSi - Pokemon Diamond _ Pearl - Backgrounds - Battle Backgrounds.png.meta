@@ -1,0 +1,1341 @@
+fileFormatVersion: 2
+guid: 428464e5a0333ac40ab147f3a8e7d951
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 1719
+        width: 256
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fecd70650672634d9699290b8fcda69
+      internalID: 2129497024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_1
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 1720
+        width: 256
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4643d7df152e8b142bfa87e3b7bf6e87
+      internalID: 375087084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_2
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 1719
+        width: 256
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c63b7607761a6314783bf81b8c0fafed
+      internalID: 1229405104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_3
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 1759
+        width: 124
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 760133a7d1e1aec4bbb1d6b8e429bb79
+      internalID: 1747335455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_4
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 1755
+        width: 124
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1f3ed4c88432704e8593834eb3df21e
+      internalID: 1636002211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_5
+      rect:
+        serializedVersion: 2
+        x: 1591
+        y: 1753
+        width: 124
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2bbf650a1dc82b478b7c3285a900ea8
+      internalID: -1300842384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_6
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 1719
+        width: 161
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 500217faee0125e47b13dcdc8a37f72a
+      internalID: 1546211308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_7
+      rect:
+        serializedVersion: 2
+        x: 1181
+        y: 1715
+        width: 161
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d6ce0b58355f9e408c072cce4de4818
+      internalID: 1720621996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_8
+      rect:
+        serializedVersion: 2
+        x: 1461
+        y: 1713
+        width: 161
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcffc31aa0e952c43a9920f53152bd19
+      internalID: 222946893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_9
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 1436
+        width: 256
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33e5093f4877d7f40a1bffd8c8da186a
+      internalID: -2131906713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_10
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 1434
+        width: 256
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 646a01f2488e2a44c8e671a670dc812a
+      internalID: 1427041713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_11
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 1434
+        width: 256
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b12c0ceefe325d49bf593bb58b34ce8
+      internalID: -2103977156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_12
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 1476
+        width: 124
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f278ef57518168c4c9c1b6db792f4fd2
+      internalID: 2014432493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_13
+      rect:
+        serializedVersion: 2
+        x: 1307
+        y: 1475
+        width: 124
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e042bd7a97ddf94e947174c8a2937f0
+      internalID: -215588460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_14
+      rect:
+        serializedVersion: 2
+        x: 1602
+        y: 1475
+        width: 124
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e76059dc3cf0914386f25b68a1ac854
+      internalID: 429229459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_15
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 1436
+        width: 161
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f9dbc3269cf31a42ac51051a125ef8c
+      internalID: -1187438818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_16
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 1435
+        width: 161
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7809572671ce5841ad44d79f3034ce3
+      internalID: 1210424671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_17
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 1435
+        width: 161
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a771a7b24ed29642899c49a48308ebb
+      internalID: -146869935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_18
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 1170
+        width: 256
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22aeeb8f1d7b3de4f83f0391692fcb66
+      internalID: -231558282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_19
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 1170
+        width: 256
+        height: 143
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9727bfadfee15dc4da8f6b80d6a3b7d4
+      internalID: -838829234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_20
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 1168
+        width: 256
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1a0da4000f90f04689c3df241c006c7
+      internalID: -1582279511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_21
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 1230
+        width: 124
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b79764004ad3ce84caf45db1b58a4226
+      internalID: -2059503092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_22
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 1226
+        width: 124
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1756ce8ebc51c234280ddc706626e7b7
+      internalID: -1746846038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_23
+      rect:
+        serializedVersion: 2
+        x: 1610
+        y: 1222
+        width: 124
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0f97158fa6a1994cbcc28c9d90b8de0
+      internalID: -909594537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_24
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 1190
+        width: 161
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a8cfe3e8e77f8d4daa19e187fe34f8d
+      internalID: 540310490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_25
+      rect:
+        serializedVersion: 2
+        x: 1181
+        y: 1186
+        width: 161
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95ee3ad97051665479185073fe60c377
+      internalID: 1976438086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_26
+      rect:
+        serializedVersion: 2
+        x: 1480
+        y: 1182
+        width: 161
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2316dbfa2e3b29a42a79eb83e5d29a15
+      internalID: 2003753660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_27
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 895
+        width: 256
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4700c56a63dea874183c0ce4ce1f62f3
+      internalID: 1965398851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_28
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 894
+        width: 256
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc32ff9f038f1a24f9a470b2bb8931b8
+      internalID: 1477122899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_29
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 893
+        width: 256
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2af9e67a91189744f954e6976233d38d
+      internalID: 299002334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_30
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 962
+        width: 126
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2002c1500da5a26408dbdb86209aa5ef
+      internalID: 459447000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_31
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 951
+        width: 126
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50d821ac14187154487118051ddf73c2
+      internalID: 777336805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_32
+      rect:
+        serializedVersion: 2
+        x: 1618
+        y: 953
+        width: 126
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6437b5f9eeeb7c546a8edea159701995
+      internalID: -1067013605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_33
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 922
+        width: 152
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67b7dac36e3154940b867d9e71646fc4
+      internalID: -484829185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_34
+      rect:
+        serializedVersion: 2
+        x: 1185
+        y: 911
+        width: 152
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bc17f54fe539934792ddb0e5d611385
+      internalID: -861356216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_35
+      rect:
+        serializedVersion: 2
+        x: 1489
+        y: 913
+        width: 152
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75ed1caeaa30a51499fd639bfbc531c3
+      internalID: 883197691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_36
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 625
+        width: 256
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69795ec22b09ae745805f6760927cfa8
+      internalID: 931590005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_37
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 624
+        width: 256
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9669305f3eb9e014fb3a6c8bab8101b7
+      internalID: -419396041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_38
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 681
+        width: 124
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4f155972c7ada84bad54992ae17e75e
+      internalID: 1723221417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_39
+      rect:
+        serializedVersion: 2
+        x: 1319
+        y: 673
+        width: 124
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0e255b3e6da79449a4c1600288cf80c
+      internalID: -754174584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_40
+      rect:
+        serializedVersion: 2
+        x: 1604
+        y: 665
+        width: 124
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cdc39fb2d0270d478e1180cbe777333
+      internalID: 954239940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_41
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 641
+        width: 161
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb9333e9a448c784bb51292375b85a5d
+      internalID: 1967899724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_42
+      rect:
+        serializedVersion: 2
+        x: 1189
+        y: 633
+        width: 161
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7510beccbd70b544c9ce11cd5ff8f557
+      internalID: -11327479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_43
+      rect:
+        serializedVersion: 2
+        x: 1474
+        y: 625
+        width: 161
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a86918a1fb4fe7044b99d7b64824a731
+      internalID: -277718323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_44
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 348
+        width: 256
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc9301f3f2f305d40803613fd49396c5
+      internalID: -1724607699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_45
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 350
+        width: 256
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a0296e63766cc44699718ecf8a7293d
+      internalID: 1035615394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_46
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 43
+        width: 306
+        height: 450
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61498e8513a5d60438f1687034b31321
+      internalID: 359635107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_47
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 387
+        width: 124
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3f99abdc5661884cace04bd349cd2ac
+      internalID: -209187471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_48
+      rect:
+        serializedVersion: 2
+        x: 1525
+        y: 382
+        width: 124
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09453d197cffb9a45a32676de22f50e6
+      internalID: -2042495208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_49
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 347
+        width: 161
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc70b79e3fa23944ba32b52ef5bccbbc
+      internalID: 424973434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_50
+      rect:
+        serializedVersion: 2
+        x: 1395
+        y: 269
+        width: 240
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7637ddf3eef3fdf4d949f9941e9bde9f
+      internalID: -962623427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_51
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 41
+        width: 256
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 618398e4bbfc50c4cb35ba5b3fb88f2c
+      internalID: 845978826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_52
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 1692
+        width: 299
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b99407230862ab34b8af03890f73050c
+      internalID: -1477833336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_53
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 1672
+        width: 246
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a532b91e7404e21498432081d00cef68
+      internalID: -52883723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_0: 2129497024
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_1: 375087084
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_10: 1427041713
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_11: -2103977156
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_12: 2014432493
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_13: -215588460
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_14: 429229459
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_15: -1187438818
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_16: 1210424671
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_17: -146869935
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_18: -231558282
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_19: -838829234
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_2: 1229405104
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_20: -1582279511
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_21: -2059503092
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_22: -1746846038
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_23: -909594537
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_24: 540310490
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_25: 1976438086
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_26: 2003753660
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_27: 1965398851
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_28: 1477122899
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_29: 299002334
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_3: 1747335455
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_30: 459447000
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_31: 777336805
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_32: -1067013605
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_33: -484829185
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_34: -861356216
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_35: 883197691
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_36: 931590005
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_37: -419396041
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_38: 1723221417
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_39: -754174584
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_4: 1636002211
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_40: 954239940
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_41: 1967899724
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_42: -11327479
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_43: -277718323
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_44: -1724607699
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_45: 1035615394
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_46: 359635107
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_47: -209187471
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_48: -2042495208
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_49: 424973434
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_5: -1300842384
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_50: -962623427
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_51: 845978826
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_52: -1477833336
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_53: -52883723
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_6: 1546211308
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_7: 1720621996
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_8: 222946893
+      2DS _ DSi - Pokemon Diamond _ Pearl - Backgrounds - Battle Backgrounds_9: -2131906713
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
