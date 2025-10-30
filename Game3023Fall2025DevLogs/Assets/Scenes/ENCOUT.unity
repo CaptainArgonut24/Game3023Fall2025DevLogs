@@ -3506,7 +3506,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -3555,6 +3555,8 @@ MonoBehaviour:
   dialogueText: {fileID: 328006257}
   playerHPText: {fileID: 1558278562}
   enemyHPText: {fileID: 1101554618}
+  playerXPText: {fileID: 0}
+  enemyXPText: {fileID: 0}
   playerLevelText: {fileID: 1591110697}
   enemyLevelText: {fileID: 93039655}
   playerNameText: {fileID: 1786655898}
@@ -3562,8 +3564,19 @@ MonoBehaviour:
   fightButton: {fileID: 653967293}
   bagButton: {fileID: 1197474933}
   runButton: {fileID: 1183512314}
-  pokemonButton: {fileID: 179614}
-  enemyData: {fileID: 11400000, guid: e8ce22ebd8316a04988be6e8c5a10528, type: 2}
+  specialButton: {fileID: 179614}
+  playerAnimator: {fileID: 0}
+  enemyAnimator: {fileID: 0}
+  level1Enemies: []
+  level1Chance: 50
+  level2Enemies: []
+  level2Chance: 20
+  level3Enemies: []
+  level3Chance: 20
+  level4Enemies: []
+  level4Chance: 10
+  bossEnemy: {fileID: 0}
+  bossMode: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

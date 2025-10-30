@@ -2,45 +2,49 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using UnityEngine;
-
-public enum SpecialAttack
-{
-    FireBlast,
-    ThunderStrike,
-    AquaWave,
-    LeafStorm,
-    ShadowFang,
-    FrostBite,
-    EarthQuake,
-    WindSlash
-}
-
-[CreateAssetMenu(fileName = "NewEnemyData", menuName = "ScriptableObjects/EnemyData", order = 1)]
+[CreateAssetMenu(fileName = "NewEnemyData", menuName = "Game/Enemy Data")]
 public class EnemyData : ScriptableObject
 {
     [Header("Basic Info")]
     public string enemyName;
-    [Range(1, 100)] public int level = 1;
-    public int HP = 100;
-    public int XP = 50;
+    public int level;
+    public int HP;
+    public int XP;
+    public Sprite image;
+    public Color color = Color.white;
 
     [Header("Animations")]
-    public AnimationClip idleAnim;
-    public AnimationClip attackAnim;
-    public AnimationClip hitAnim;
-    public AnimationClip deadAnim;
-    public AnimationClip defendAnim;
-    public AnimationClip celebrateAnim;
+    public AnimationClip idleAnimation;
+    public AnimationClip fightAnimation;
+    public AnimationClip attackAnimation;
+    public AnimationClip hitAnimation;
+    public AnimationClip deadAnimation;
+    public AnimationClip defendAnimation;
+    public AnimationClip celebrateAnimation;
 
     [Header("Special Attack")]
-    public SpecialAttack specialAttack;
+    public SpecialAttackType specialAttack;
+    public enum SpecialAttackType
+    {
+        FireBlast, IceBeam, ThunderStrike, WaterPulse,
+        RockSmash, DarkWave, SolarBeam, PsychicBurst
+    }
 
-    [Header("Visuals")]
-    public Sprite enemyImage;
-    public Color enemyColor = Color.white;
-
-    [Header("Items")]
+    [Header("Inventory")]
     public int healPotions = 0;
+
+    [Header("AI Behavior Chances (total = 100%)")]
+    [Range(0, 100)] public int healChance = 30;
+    [Range(0, 100)] public int regularAttackChance = 40;
+    [Range(0, 100)] public int specialAttackChance = 30;
+
+    [Header("AI Skip Turn Logic")]
+    public int maxSkipTurns = 2; // how many times enemy can skip
+    public float skipTurnRegenBonus = 2.0f; // how much faster special cooldown regens when skipping
+
+    [Header("Cooldown Settings")]
+    public int specialAttackCooldown = 3; // turns needed before special usable again
 }
+
+
 

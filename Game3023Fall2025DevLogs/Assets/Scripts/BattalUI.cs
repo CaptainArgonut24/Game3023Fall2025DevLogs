@@ -12,209 +12,265 @@ public class BattleUI : MonoBehaviour
     [Header("Dialogue")]
     [SerializeField] private TextMeshProUGUI dialogueText;
 
-    [Header("HP / XP / Level / Names")]
+    [Header("HP & XP")]
     [SerializeField] private TextMeshProUGUI playerHPText;
     [SerializeField] private TextMeshProUGUI enemyHPText;
     [SerializeField] private TextMeshProUGUI playerXPText;
     [SerializeField] private TextMeshProUGUI enemyXPText;
+
+    [Header("Level & Names")]
     [SerializeField] private TextMeshProUGUI playerLevelText;
     [SerializeField] private TextMeshProUGUI enemyLevelText;
     [SerializeField] private TextMeshProUGUI playerNameText;
     [SerializeField] private TextMeshProUGUI enemyNameText;
 
-    [Header("Images")]
+    [Header("Buttons")]
+    [SerializeField] private Button fightButton;
+    [SerializeField] private Button bagButton;      // Item
+    [SerializeField] private Button runButton;      // Defend
+    [SerializeField] private Button specialButton;  // Special Attack
+
+    [Header("Animations")]
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private Animator enemyAnimator;
 
-    [Header("Buttons")]
-    [SerializeField] private Button fightButton;
-    [SerializeField] private Button bagButton;
-    [SerializeField] private Button runButton;
-    [SerializeField] private Button pokemonButton;
-
-    [Header("Enemy Pools")]
+    [Header("Enemy Data")]
     [SerializeField] private EnemyData[] level1Enemies;
-    [SerializeField, Range(0, 100)] private float level1Chance = 50f;
+    [SerializeField, Range(0, 100)] private int level1Chance = 50;
 
     [SerializeField] private EnemyData[] level2Enemies;
-    [SerializeField, Range(0, 100)] private float level2Chance = 20f;
+    [SerializeField, Range(0, 100)] private int level2Chance = 20;
 
     [SerializeField] private EnemyData[] level3Enemies;
-    [SerializeField, Range(0, 100)] private float level3Chance = 20f;
+    [SerializeField, Range(0, 100)] private int level3Chance = 20;
 
     [SerializeField] private EnemyData[] level4Enemies;
-    [SerializeField, Range(0, 100)] private float level4Chance = 10f;
+    [SerializeField, Range(0, 100)] private int level4Chance = 10;
 
-    [Header("Boss Mode")]
-    [SerializeField] private bool bossMode = false;
     [SerializeField] private EnemyData bossEnemy;
+    [SerializeField] private bool bossMode = false;
 
-    // --- Runtime ---
     private EnemyData currentEnemy;
+
     private int playerHP = 100;
     private int enemyHP;
     private int enemyLevel;
     private string enemyName;
+
     private bool playerTurn = true;
+    private bool isDefending = false;
+
+    private int playerSpecialUses = 2;
+    private int playerSpecialCooldown = 0;
+
+    private int enemySpecialCooldown = 0;
+    private int enemySkipTurnsUsed = 0;
 
     private void Start()
     {
-        // Choose enemy
+        PickEnemy();
+        InitializeEnemyData();
+        SetupButtons();
+        dialogueText.text = $"A wild {enemyName} appeared!";
+        UpdateUI();
+    }
+
+    private void PickEnemy()
+    {
         if (bossMode && bossEnemy != null)
         {
             currentEnemy = bossEnemy;
+            return;
+        }
+
+        int roll = Random.Range(0, 100);
+        if (roll < level1Chance && level1Enemies.Length > 0)
+            currentEnemy = level1Enemies[Random.Range(0, level1Enemies.Length)];
+        else if (roll < level1Chance + level2Chance && level2Enemies.Length > 0)
+            currentEnemy = level2Enemies[Random.Range(0, level2Enemies.Length)];
+        else if (roll < level1Chance + level2Chance + level3Chance && level3Enemies.Length > 0)
+            currentEnemy = level3Enemies[Random.Range(0, level3Enemies.Length)];
+        else if (level4Enemies.Length > 0)
+            currentEnemy = level4Enemies[Random.Range(0, level4Enemies.Length)];
+        else
+            currentEnemy = level1Enemies.Length > 0 ? level1Enemies[0] : null;
+    }
+
+    private void InitializeEnemyData()
+    {
+        if (currentEnemy != null)
+        {
+            enemyHP = currentEnemy.HP;
+            enemyLevel = currentEnemy.level;
+            enemyName = currentEnemy.enemyName;
+            enemySpecialCooldown = currentEnemy.specialAttackCooldown;
         }
         else
         {
-            currentEnemy = ChooseRandomEnemy();
+            Debug.LogWarning("No EnemyData found!");
+            enemyHP = 50;
+            enemyLevel = 1;
+            enemyName = "Wild Enemy";
         }
-
-        // Apply enemy data
-        enemyHP = currentEnemy.HP;
-        enemyLevel = currentEnemy.level;
-        enemyName = currentEnemy.enemyName;
-
-        dialogueText.text = $"A wild {enemyName} appeared!";
-        SetupButtons();
-        UpdateUI();
-
-        // Set starting animations
-        playerAnimator.Play("Idle");
-        enemyAnimator.Play(currentEnemy.idleAnim ? currentEnemy.idleAnim.name : "Idle");
-    }
-
-    private EnemyData ChooseRandomEnemy()
-    {
-        float roll = Random.Range(0f, 100f);
-        if (roll <= level1Chance && level1Enemies.Length > 0)
-            return level1Enemies[Random.Range(0, level1Enemies.Length)];
-        else if (roll <= level1Chance + level2Chance && level2Enemies.Length > 0)
-            return level2Enemies[Random.Range(0, level2Enemies.Length)];
-        else if (roll <= level1Chance + level2Chance + level3Chance && level3Enemies.Length > 0)
-            return level3Enemies[Random.Range(0, level3Enemies.Length)];
-        else
-            return level4Enemies.Length > 0
-                ? level4Enemies[Random.Range(0, level4Enemies.Length)]
-                : null;
     }
 
     private void SetupButtons()
     {
-        fightButton.onClick.AddListener(OnFightButton);
-        bagButton.onClick.AddListener(OnBagButton);
-        runButton.onClick.AddListener(OnRunButton);
-        pokemonButton.onClick.AddListener(OnPokemonButton);
+        fightButton.onClick.AddListener(OnFight);
+        bagButton.onClick.AddListener(OnUseItem);
+        specialButton.onClick.AddListener(OnSpecialAttack);
+        runButton.onClick.AddListener(OnDefend);
     }
 
     private void UpdateUI()
     {
-        playerHPText.text = "HP: " + playerHP;
-        enemyHPText.text = "HP: " + enemyHP;
+        playerHPText.text = $"HP: {playerHP}";
+        enemyHPText.text = $"HP: {enemyHP}";
         playerLevelText.text = "Lv. 5";
-        enemyLevelText.text = "Lv. " + enemyLevel;
+        enemyLevelText.text = $"Lv. {enemyLevel}";
         playerNameText.text = "Player";
         enemyNameText.text = enemyName;
+        playerXPText.text = "XP: 0";
+        enemyXPText.text = $"XP: {currentEnemy.XP}";
+
+        specialButton.interactable = playerSpecialUses > 0 && playerSpecialCooldown <= 0;
     }
 
-    private void OnFightButton()
+    private void OnFight()
     {
         if (!playerTurn) return;
         StartCoroutine(PlayerAttack());
     }
 
+    private void OnUseItem()
+    {
+        if (!playerTurn) return;
+        dialogueText.text = "You used an energy pack to restore HP!";
+        playerHP = Mathf.Min(playerHP + 25, 100);
+        UpdateUI();
+        StartCoroutine(SwitchTurn());
+    }
+
+    private void OnSpecialAttack()
+    {
+        if (!playerTurn || playerSpecialUses <= 0 || playerSpecialCooldown > 0) return;
+
+        playerSpecialUses--;
+        playerSpecialCooldown = 3;
+
+        dialogueText.text = "You unleashed your special attack!";
+        playerAnimator.Play("Attack");
+        StartCoroutine(DealDamage(Random.Range(25, 35), true));
+    }
+
+    private void OnDefend()
+    {
+        if (!playerTurn) return;
+        dialogueText.text = "You defend to reduce incoming damage!";
+        isDefending = true;
+        StartCoroutine(SwitchTurn());
+    }
+
     private IEnumerator PlayerAttack()
     {
-        dialogueText.text = "You attack!";
         playerAnimator.Play("Attack");
+        dialogueText.text = "You attack!";
         yield return new WaitForSeconds(1f);
+        yield return DealDamage(Random.Range(10, 20));
+    }
 
-        int damage = Random.Range(10, 20);
+    private IEnumerator DealDamage(int damage, bool isSpecial = false)
+    {
+        enemyAnimator.Play("Hit");
         enemyHP -= damage;
         enemyHP = Mathf.Max(enemyHP, 0);
         dialogueText.text = $"{enemyName} took {damage} damage!";
-        enemyAnimator.Play(currentEnemy.hitAnim ? currentEnemy.hitAnim.name : "Hit");
-
         UpdateUI();
-        yield return new WaitForSeconds(1.5f);
+
+        yield return new WaitForSeconds(1.2f);
 
         if (enemyHP <= 0)
         {
+            enemyAnimator.Play("Death");
             dialogueText.text = $"{enemyName} fainted!";
-            enemyAnimator.Play(currentEnemy.deadAnim ? currentEnemy.deadAnim.name : "Dead");
             yield break;
         }
 
-        playerTurn = false;
-        StartCoroutine(EnemyTurnAI());
+        playerSpecialCooldown = Mathf.Max(0, playerSpecialCooldown - 1);
+        StartCoroutine(SwitchTurn());
     }
 
-    // --- Simple but fair Enemy AI ---
-    private IEnumerator EnemyTurnAI()
+    private IEnumerator SwitchTurn()
+    {
+        yield return new WaitForSeconds(1f);
+        playerTurn = !playerTurn;
+        if (!playerTurn)
+            StartCoroutine(EnemyTurn());
+        else
+            dialogueText.text = "Your turn!";
+    }
+
+    private IEnumerator EnemyTurn()
     {
         yield return new WaitForSeconds(1f);
 
-        // Weighted AI logic: prefers attack, sometimes defend or heal
-        float choice = Random.Range(0f, 1f);
-        if (enemyHP < currentEnemy.HP * 0.3f && choice < 0.3f && currentEnemy.healPotions > 0)
+        float healthPercent = (float)enemyHP / currentEnemy.HP;
+        int roll = Random.Range(0, 100);
+
+        // Skip turn logic
+        bool shouldSkip = enemySkipTurnsUsed < currentEnemy.maxSkipTurns && roll < 20;
+        if (shouldSkip)
         {
-            // Heal
-            int heal = Random.Range(10, 25);
-            currentEnemy.healPotions--;
-            enemyHP = Mathf.Min(enemyHP + heal, currentEnemy.HP);
-            dialogueText.text = $"{enemyName} used a potion and recovered {heal} HP!";
-            enemyAnimator.Play(currentEnemy.defendAnim ? currentEnemy.defendAnim.name : "Defend");
+            enemySkipTurnsUsed++;
+            enemySpecialCooldown = Mathf.Max(0, enemySpecialCooldown - Mathf.RoundToInt(currentEnemy.skipTurnRegenBonus));
+            dialogueText.text = $"{enemyName} is waiting and regaining power!";
         }
-        else if (choice < 0.7f)
+        else if (healthPercent < 0.3f && roll < currentEnemy.healChance && currentEnemy.healPotions > 0)
         {
-            // Regular attack
+            currentEnemy.healPotions--;
+            enemyHP += 25;
+            dialogueText.text = $"{enemyName} used a potion!";
+        }
+        else if (roll < currentEnemy.healChance + currentEnemy.regularAttackChance)
+        {
             dialogueText.text = $"{enemyName} attacks!";
-            enemyAnimator.Play(currentEnemy.attackAnim ? currentEnemy.attackAnim.name : "Attack");
             yield return new WaitForSeconds(1f);
-            int damage = Random.Range(8, 15);
-            playerHP -= damage;
-            playerHP = Mathf.Max(playerHP, 0);
-            dialogueText.text = $"You took {damage} damage!";
+            int dmg = isDefending ? Random.Range(4, 8) : Random.Range(8, 15);
+            playerHP -= dmg;
+            playerAnimator.Play("Hit");
+            dialogueText.text = $"You took {dmg} damage!";
+        }
+        else if (enemySpecialCooldown <= 0)
+        {
+            dialogueText.text = $"{enemyName} used {currentEnemy.specialAttack}!";
+            enemyAnimator.Play("Attack");
+            yield return new WaitForSeconds(1f);
+            int dmg = Random.Range(15, 25);
+            playerHP -= dmg;
+            playerAnimator.Play("Hit");
+            enemySpecialCooldown = currentEnemy.specialAttackCooldown;
         }
         else
         {
-            // Special attack
-            dialogueText.text = $"{enemyName} used {currentEnemy.specialAttack}!";
-            enemyAnimator.Play(currentEnemy.attackAnim ? currentEnemy.attackAnim.name : "Attack");
-            yield return new WaitForSeconds(1f);
-            int damage = Random.Range(15, 30);
-            playerHP -= damage;
-            playerHP = Mathf.Max(playerHP, 0);
-            dialogueText.text = $"You took {damage} damage!";
+            dialogueText.text = $"{enemyName} is charging up!";
         }
 
+        isDefending = false;
+        playerHP = Mathf.Max(playerHP, 0);
+        enemySpecialCooldown = Mathf.Max(0, enemySpecialCooldown - 1);
+
         UpdateUI();
+
         yield return new WaitForSeconds(1.5f);
 
         if (playerHP <= 0)
         {
+            playerAnimator.Play("Death");
             dialogueText.text = "You fainted...";
-            playerAnimator.Play("Dead");
             yield break;
         }
 
         dialogueText.text = "Your turn!";
         playerTurn = true;
-        playerAnimator.Play("Idle");
-    }
-
-    private void OnBagButton()
-    {
-        dialogueText.text = "You check your bag... (no items implemented yet)";
-    }
-
-    private void OnRunButton()
-    {
-        dialogueText.text = "You ran away safely!";
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    private void OnPokemonButton()
-    {
-        dialogueText.text = $"You check your Pokémon! {enemyName} looks ready to use {currentEnemy.specialAttack}.";
     }
 }
