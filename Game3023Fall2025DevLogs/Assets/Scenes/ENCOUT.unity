@@ -538,6 +538,7 @@ GameObject:
   - component: {fileID: 119070574}
   - component: {fileID: 119070576}
   - component: {fileID: 119070575}
+  - component: {fileID: 119070577}
   m_Layer: 5
   m_Name: Enimey
   m_TagString: Untagged
@@ -602,6 +603,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119070573}
   m_CullTransparentMesh: 1
+--- !u!95 &119070577
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119070573}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9cfc9d3aa87e82549abfdf249e0e4c79, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &193427473
 GameObject:
   m_ObjectHideFlags: 0
@@ -3541,6 +3563,7 @@ MonoBehaviour:
   bagButton: {fileID: 1197474933}
   runButton: {fileID: 1183512314}
   pokemonButton: {fileID: 179614}
+  enemyData: {fileID: 11400000, guid: e8ce22ebd8316a04988be6e8c5a10528, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

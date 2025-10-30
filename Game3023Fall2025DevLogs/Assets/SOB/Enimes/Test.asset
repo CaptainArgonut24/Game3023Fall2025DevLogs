@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa28fddd785d10f4692117667f592346, type: 3}
+  m_Name: Test
+  m_EditorClassIdentifier: 
+  enemyName: TEST
+  level: 2
+  HP: 100
+  XP: 50
+  idleAnimation: {fileID: 7400000, guid: 6138c59f248fea24685eaf6cfd014671, type: 2}
+  fightAnimation: {fileID: 7400000, guid: 6138c59f248fea24685eaf6cfd014671, type: 2}
+  attackAnimation: {fileID: 7400000, guid: 6138c59f248fea24685eaf6cfd014671, type: 2}
+  specialAttack: 0
+  enemyImage: {fileID: 0}
+  enemyColor: {r: 1, g: 1, b: 1, a: 1}
+  healPotions: 2
