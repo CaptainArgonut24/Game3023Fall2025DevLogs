@@ -3833,10 +3833,12 @@ MonoBehaviour:
   enemyNameText: {fileID: 1759531540}
   fightButton: {fileID: 653967293}
   bagButton: {fileID: 1197474933}
-  runButton: {fileID: 1183512314}
-  specialButton: {fileID: 179614}
+  healButton: {fileID: 179614}
+  specialButton: {fileID: 1183512314}
   playerAnimator: {fileID: 0}
   enemyAnimator: {fileID: 0}
+  playerPortraitImage: {fileID: 1596172012}
+  enemyPortraitImage: {fileID: 119070575}
   level1Enemies: []
   level1Chance: 50
   level2Enemies: []
@@ -3847,6 +3849,53 @@ MonoBehaviour:
   level4Chance: 10
   bossEnemy: {fileID: 0}
   bossMode: 0
+  playerName: Player
+  playerLevel: 5
+  playerMaxHP: 100
+  playerCurrentHP: 100
+  playerXP: 0
+  playerItems:
+  - itemName: Glue Gun (sticky surprise)
+    effect: 0
+    minAmount: 6
+    maxAmount: 12
+    quantity: 2
+  - itemName: Dramatic Sax (shockwave)
+    effect: 0
+    minAmount: 8
+    maxAmount: 14
+    quantity: 3
+  - itemName: Fake Mustache (confuse)
+    effect: 0
+    minAmount: 4
+    maxAmount: 8
+    quantity: 2
+  - itemName: Fizzy Soda (heal)
+    effect: 1
+    minAmount: 15
+    maxAmount: 20
+    quantity: 2
+  - itemName: Banana Peel (trip)
+    effect: 0
+    minAmount: 5
+    maxAmount: 10
+    quantity: 1
+  - itemName: Rubber Chicken (shock)
+    effect: 0
+    minAmount: 7
+    maxAmount: 13
+    quantity: 2
+  - itemName: Caffeine Shot (minor heal)
+    effect: 1
+    minAmount: 8
+    maxAmount: 12
+    quantity: 3
+  playerSpecial: 0
+  playerMaxBagUses: 3
+  playerMaxHealUses: 2
+  playerMaxSpecialUses: 2
+  playerSpecialCooldownTurns: 3
+  difficulty: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
