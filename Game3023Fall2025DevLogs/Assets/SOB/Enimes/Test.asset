@@ -16,10 +16,59 @@ MonoBehaviour:
   level: 2
   HP: 100
   XP: 50
-  idleAnimation: {fileID: 7400000, guid: 6138c59f248fea24685eaf6cfd014671, type: 2}
-  fightAnimation: {fileID: 7400000, guid: 6138c59f248fea24685eaf6cfd014671, type: 2}
-  attackAnimation: {fileID: 7400000, guid: 6138c59f248fea24685eaf6cfd014671, type: 2}
+  image: {fileID: 0}
+  color: {r: 0.19531132, g: 0.09251513, b: 0.7264151, a: 1}
   specialAttack: 0
-  enemyImage: {fileID: 0}
-  enemyColor: {r: 1, g: 1, b: 1, a: 1}
-  healPotions: 2
+  attackItems:
+  - itemName: Teleporter
+    effect: 0
+    minAmount: 10
+    maxAmount: 15
+    chanceWeight: 20
+    quantity: 1
+  - itemName: Disguise Kit
+    effect: 1
+    minAmount: 10
+    maxAmount: 20
+    chanceWeight: 15
+    quantity: 1
+  - itemName: Energy Drink
+    effect: 1
+    minAmount: 15
+    maxAmount: 25
+    chanceWeight: 10
+    quantity: 1
+  - itemName: Booboo Blast
+    effect: 0
+    minAmount: 12
+    maxAmount: 18
+    chanceWeight: 15
+    quantity: 1
+  - itemName: Banana Peel
+    effect: 0
+    minAmount: 8
+    maxAmount: 14
+    chanceWeight: 10
+    quantity: 1
+  - itemName: Shrink Ray
+    effect: 0
+    minAmount: 20
+    maxAmount: 30
+    chanceWeight: 20
+    quantity: 1
+  - itemName: Cake
+    effect: 1
+    minAmount: 10
+    maxAmount: 15
+    chanceWeight: 10
+    quantity: 1
+  healChance: 30
+  regularAttackChance: 40
+  specialAttackChance: 20
+  itemUseChance: 25
+  maxSkipTurns: 2
+  skipTurnRegenBonus: 2
+  specialAttackCooldown: 3
+  maxUsesHealPerBattle: 2
+  maxUsesSpecialPerBattle: 2
+  maxItemUsesPerBattle: 2

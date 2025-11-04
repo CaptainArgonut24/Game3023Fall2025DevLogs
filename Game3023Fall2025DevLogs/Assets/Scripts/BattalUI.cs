@@ -27,18 +27,11 @@ public class BattleUI : MonoBehaviour
     [Header("Buttons")]
     [SerializeField] private Button fightButton;
     [SerializeField] private Button bagButton;
-    [SerializeField] private Button healButton;
     [SerializeField] private Button specialButton;
+    [SerializeField] private Button fleeButton;
 
-    [Header("Animations & Visuals")]
-    [SerializeField] private Image playerPortraitImage;
-    [SerializeField] private Image enemyPortraitImage;
-
-    [SerializeField] private RuntimeAnimatorController playerAnimatorController;
-    [SerializeField] private RuntimeAnimatorController enemyAnimatorController;
-
-    private Animator playerAnimator;
-    private Animator enemyAnimator;
+    [Header("Enemy Display")]
+    [SerializeField] private Image enemyImageUI; // 🟩 Enemy image UI slot in Inspector
 
     [Header("Enemy Data (ScriptableObject)")]
     [SerializeField] private EnemyData[] level1Enemies;
@@ -54,7 +47,7 @@ public class BattleUI : MonoBehaviour
 
     private EnemyData currentEnemy;
 
-    [Header("Player Defaults")]
+    [Header("Player Configuration")]
     [SerializeField] private string playerName = "Player";
     [SerializeField] private int playerLevel = 5;
     [SerializeField] private int playerMaxHP = 100;
@@ -67,11 +60,7 @@ public class BattleUI : MonoBehaviour
     {
         new PlayerItem("Teleporter", PlayerItem.EffectType.Damage, 8, 14, 2),
         new PlayerItem("Energy Drink", PlayerItem.EffectType.Heal, 12, 20, 3),
-        new PlayerItem("Disguise Kit", PlayerItem.EffectType.Damage, 6, 12, 2),
-        new PlayerItem("Banana Peel", PlayerItem.EffectType.Damage, 5, 10, 2),
-        new PlayerItem("C4 (Totally Safe)", PlayerItem.EffectType.Damage, 12, 18, 1),
-        new PlayerItem("Invisibility Potion", PlayerItem.EffectType.Heal, 8, 14, 2),
-        new PlayerItem("Rubber Duck", PlayerItem.EffectType.Damage, 6, 9, 3)
+        new PlayerItem("Banana Peel", PlayerItem.EffectType.Damage, 5, 10, 2)
     };
 
     [System.Serializable]
@@ -100,7 +89,6 @@ public class BattleUI : MonoBehaviour
 
     [Header("Usage Limits")]
     [SerializeField] private int playerMaxBagUses = 3;
-    [SerializeField] private int playerMaxHealUses = 2;
     [SerializeField] private int playerMaxSpecialUses = 2;
     [SerializeField] private int playerSpecialCooldownTurns = 3;
 
@@ -108,14 +96,12 @@ public class BattleUI : MonoBehaviour
     [Range(0, 100)] public int playerStartChance = 90;
 
     private int playerBagUses = 0;
-    private int playerHealUses = 0;
     private int playerSpecialUsesRemaining = 0;
     private int playerSpecialCooldown = 0;
 
     private int enemyHP;
     private int enemyLevel;
     private string enemyName;
-    private int enemySpecialCooldown = 0;
     private int enemyXP = 0;
 
     private bool playerTurn = true;
@@ -129,50 +115,25 @@ public class BattleUI : MonoBehaviour
     private float enemyAggressionMultiplier = 1.0f;
     private int xpPerAttack = 5;
 
-    private void Awake()
-    {
-        ApplyDifficultySettings();
-
-        // Automatically assign or add Animator components and assign controllers
-        if (playerPortraitImage)
-        {
-            playerAnimator = playerPortraitImage.GetComponent<Animator>();
-            if (!playerAnimator)
-                playerAnimator = playerPortraitImage.gameObject.AddComponent<Animator>();
-
-            if (playerAnimatorController)
-                playerAnimator.runtimeAnimatorController = playerAnimatorController;
-        }
-
-        if (enemyPortraitImage)
-        {
-            enemyAnimator = enemyPortraitImage.GetComponent<Animator>();
-            if (!enemyAnimator)
-                enemyAnimator = enemyPortraitImage.gameObject.AddComponent<Animator>();
-
-            if (enemyAnimatorController)
-                enemyAnimator.runtimeAnimatorController = enemyAnimatorController;
-        }
-    }
-
     private void Start()
     {
-        playerCurrentHP = Mathf.Min(playerCurrentHP, playerMaxHP);
-        playerSpecialUsesRemaining = playerMaxSpecialUses;
-        playerBagUses = 0;
-        playerHealUses = 0;
-        playerSpecialCooldown = 0;
-
+        ApplyDifficultySettings();
+        InitializePlayer();
         PickEnemy();
         InitializeEnemyData();
         SetupButtons();
 
-        // Random turn order
         playerTurn = Random.Range(0, 100) < playerStartChance;
         dialogueText.text = playerTurn ? $"You start first!" : $"{enemyName} strikes first!";
-
-        SetBothIdle();
         UpdateUI();
+    }
+
+    private void InitializePlayer()
+    {
+        playerCurrentHP = Mathf.Min(playerCurrentHP, playerMaxHP);
+        playerSpecialUsesRemaining = playerMaxSpecialUses;
+        playerBagUses = 0;
+        playerSpecialCooldown = 0;
     }
 
     private void ApplyDifficultySettings()
@@ -219,11 +180,14 @@ public class BattleUI : MonoBehaviour
             enemyHP = currentEnemy.HP;
             enemyLevel = currentEnemy.level;
             enemyName = currentEnemy.enemyName;
-            enemySpecialCooldown = currentEnemy.specialAttackCooldown;
             enemyXP = currentEnemy.XP;
 
-            if (enemyPortraitImage && currentEnemy.image)
-                enemyPortraitImage.sprite = currentEnemy.image;
+            // 🟩 Apply enemy sprite and color
+            if (enemyImageUI != null)
+            {
+                enemyImageUI.sprite = currentEnemy.image;
+                enemyImageUI.color = currentEnemy.color;
+            }
         }
         else
         {
@@ -234,9 +198,9 @@ public class BattleUI : MonoBehaviour
     private void SetupButtons()
     {
         fightButton.onClick.AddListener(OnFight);
-        bagButton.onClick.AddListener(UseRandomPlayerItem);
-        healButton.onClick.AddListener(OnHealPressed);
-        specialButton.onClick.AddListener(OnSpecialAttack);
+        bagButton.onClick.AddListener(OnUseItem);
+        specialButton.onClick.AddListener(OnSpecial);
+        if (fleeButton != null) fleeButton.onClick.AddListener(OnFlee);
     }
 
     private void UpdateUI()
@@ -251,154 +215,50 @@ public class BattleUI : MonoBehaviour
         enemyXPText.text = $"XP: {enemyXP}";
     }
 
+    // ===== PLAYER ACTIONS =====
     private void OnFight()
     {
         if (!playerTurn || battleOver) return;
-        StartCoroutine(PlayerAttack());
-    }
-
-    private IEnumerator PlayerAttack()
-    {
-        yield return StartCoroutine(PlayAnim(playerAnimator, "isFight"));
-        dialogueText.text = "You attack!";
-        yield return new WaitForSeconds(1f);
-
         int dmg = Mathf.RoundToInt(Random.Range(10, 20) * difficultyDamageMultiplier);
-        yield return StartCoroutine(DealDamageToEnemy(dmg));
-    }
-
-    private IEnumerator DealDamageToEnemy(int dmg)
-    {
-        yield return StartCoroutine(PlayAnim(enemyAnimator, "isHit"));
+        dialogueText.text = $"You attack and deal {dmg} damage!";
         enemyHP = Mathf.Max(0, enemyHP - dmg);
         playerXP += xpPerAttack;
         enemyXP = Mathf.Max(0, enemyXP - xpPerAttack);
-
-        dialogueText.text = $"{enemyName} took {dmg} damage!";
-        UpdateUI();
-        yield return new WaitForSeconds(1f);
-
-        if (enemyHP <= 0)
-        {
-            yield return StartCoroutine(EndBattle(true));
-            yield break;
-        }
-
-        StartCoroutine(SwitchTurn());
+        EndOrContinue();
     }
 
-    private IEnumerator EnemyTurn()
-    {
-        yield return new WaitForSeconds(1f);
-        yield return StartCoroutine(PlayAnim(enemyAnimator, "isFight"));
-        dialogueText.text = $"{enemyName} attacks!";
-
-        int dmg = Mathf.RoundToInt(Random.Range(8, 15) * difficultyDamageMultiplier * enemyAggressionMultiplier);
-        yield return new WaitForSeconds(1f);
-
-        yield return StartCoroutine(PlayAnim(playerAnimator, "isHit"));
-        playerCurrentHP = Mathf.Max(0, playerCurrentHP - dmg);
-        enemyXP += xpPerAttack;
-        playerXP = Mathf.Max(0, playerXP - xpPerAttack);
-
-        dialogueText.text = $"You took {dmg} damage!";
-        UpdateUI();
-        yield return new WaitForSeconds(1f);
-
-        if (playerCurrentHP <= 0)
-        {
-            yield return StartCoroutine(EndBattle(false));
-            yield break;
-        }
-
-        StartCoroutine(SwitchTurn());
-    }
-
-    private IEnumerator SwitchTurn()
-    {
-        yield return new WaitForSeconds(1f);
-        playerTurn = !playerTurn;
-        dialogueText.text = playerTurn ? "Your turn!" : $"{enemyName}'s turn!";
-        if (!playerTurn) StartCoroutine(EnemyTurn());
-    }
-
-    private IEnumerator PlayAnim(Animator anim, string boolName)
-    {
-        if (!anim) yield break;
-        anim.SetBool(boolName, true);
-        yield return new WaitForSeconds(5f);
-        anim.SetBool(boolName, false);
-    }
-
-    private void SetBothIdle()
-    {
-        if (playerAnimator) playerAnimator.SetBool("isMoving", false);
-        if (enemyAnimator) enemyAnimator.SetBool("isMoving", false);
-    }
-
-    private IEnumerator EndBattle(bool playerWon)
-    {
-        battleOver = true;
-        if (playerWon)
-        {
-            yield return StartCoroutine(PlayAnim(playerAnimator, "isWin"));
-            yield return StartCoroutine(PlayAnim(enemyAnimator, "isDead"));
-            dialogueText.text = $"{enemyName} was defeated! You won!";
-        }
-        else
-        {
-            yield return StartCoroutine(PlayAnim(playerAnimator, "isDead"));
-            yield return StartCoroutine(PlayAnim(enemyAnimator, "isWin"));
-            dialogueText.text = $"You fainted... {enemyName} wins!";
-        }
-
-        UpdateUI();
-        yield break;
-    }
-
-    private void UseRandomPlayerItem()
+    private void OnUseItem()
     {
         if (!playerTurn || battleOver) return;
-        List<PlayerItem> usable = playerItems.FindAll(i => i.quantity > 0);
+        var usable = playerItems.FindAll(i => i.quantity > 0);
         if (usable.Count == 0)
         {
-            dialogueText.text = "You have no items left!";
+            dialogueText.text = "You have no more items!";
             StartCoroutine(SwitchTurn());
             return;
         }
 
-        PlayerItem item = usable[Random.Range(0, usable.Count)];
+        var item = usable[Random.Range(0, usable.Count)];
         item.quantity--;
-        StartCoroutine(PlayAnim(playerAnimator, "isItem"));
 
         if (item.effect == PlayerItem.EffectType.Damage)
         {
-            int dmg = Mathf.RoundToInt(Random.Range(item.minAmount, item.maxAmount) * difficultyDamageMultiplier);
-            dialogueText.text = $"You used {item.itemName}!";
-            StartCoroutine(DealDamageToEnemy(dmg));
+            int dmg = Random.Range(item.minAmount, item.maxAmount);
+            enemyHP = Mathf.Max(0, enemyHP - dmg);
+            dialogueText.text = $"You used {item.itemName} and dealt {dmg} damage!";
         }
         else
         {
             int heal = Random.Range(item.minAmount, item.maxAmount);
             playerCurrentHP = Mathf.Min(playerMaxHP, playerCurrentHP + heal);
             dialogueText.text = $"You used {item.itemName} and healed {heal} HP!";
-            UpdateUI();
-            StartCoroutine(SwitchTurn());
         }
-    }
 
-    private void OnHealPressed()
-    {
-        if (!playerTurn || battleOver) return;
-        StartCoroutine(PlayAnim(playerAnimator, "isItem"));
-        int heal = Random.Range(12, 20);
-        playerCurrentHP = Mathf.Min(playerMaxHP, playerCurrentHP + heal);
-        dialogueText.text = $"You healed for {heal} HP!";
         UpdateUI();
-        StartCoroutine(SwitchTurn());
+        EndOrContinue();
     }
 
-    private void OnSpecialAttack()
+    private void OnSpecial()
     {
         if (!playerTurn || battleOver) return;
         if (playerSpecialUsesRemaining <= 0)
@@ -408,8 +268,115 @@ public class BattleUI : MonoBehaviour
         }
 
         playerSpecialUsesRemaining--;
-        StartCoroutine(PlayAnim(playerAnimator, "isFight"));
         int dmg = Mathf.RoundToInt(Random.Range(25, 35) * difficultyDamageMultiplier);
-        StartCoroutine(DealDamageToEnemy(dmg));
+        enemyHP = Mathf.Max(0, enemyHP - dmg);
+        dialogueText.text = $"You unleashed {playerSpecial} and dealt {dmg} damage!";
+        UpdateUI();
+        EndOrContinue();
+    }
+
+    private void OnFlee()
+    {
+        if (!playerTurn || battleOver) return;
+        bool escaped = Random.value < 0.5f;
+        if (escaped)
+        {
+            dialogueText.text = "You successfully fled! Exiting in 5 seconds...";
+            battleOver = true;
+            StartCoroutine(ExitAfterDelay(5f)); // 🟩 Wait 5 seconds before quit
+        }
+        else
+        {
+            dialogueText.text = "You failed to flee!";
+            StartCoroutine(SwitchTurn());
+        }
+    }
+
+    private IEnumerator ExitAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false; // 🟢 Stops Play Mode in Editor
+#else
+        Application.Quit(); // 🟢 Quits build
+#endif
+    }
+
+    // ===== ENEMY TURN =====
+    private IEnumerator EnemyTurn()
+    {
+        yield return new WaitForSeconds(1f);
+
+        if (battleOver) yield break;
+
+        int choice = Random.Range(0, 3);
+        switch (choice)
+        {
+            case 0:
+                int dmg = Mathf.RoundToInt(Random.Range(8, 15) * difficultyDamageMultiplier);
+                playerCurrentHP = Mathf.Max(0, playerCurrentHP - dmg);
+                dialogueText.text = $"{enemyName} attacks and deals {dmg} damage!";
+                break;
+            case 1:
+                var item = currentEnemy.PickWeightedItem();
+                if (item != null)
+                {
+                    if (item.effect == EnemyData.AttackItem.ItemEffectType.Damage)
+                    {
+                        int edmg = Random.Range(item.minAmount, item.maxAmount);
+                        playerCurrentHP = Mathf.Max(0, playerCurrentHP - edmg);
+                        dialogueText.text = $"{enemyName} used {item.itemName} and dealt {edmg} damage!";
+                    }
+                    else
+                    {
+                        int heal = Random.Range(item.minAmount, item.maxAmount);
+                        enemyHP = Mathf.Min(currentEnemy.HP, enemyHP + heal);
+                        dialogueText.text = $"{enemyName} used {item.itemName} and healed {heal} HP!";
+                    }
+                }
+                break;
+            case 2:
+                int specialDmg = Mathf.RoundToInt(Random.Range(15, 25) * difficultyDamageMultiplier);
+                playerCurrentHP = Mathf.Max(0, playerCurrentHP - specialDmg);
+                dialogueText.text = $"{enemyName} used {currentEnemy.specialAttack} and dealt {specialDmg} damage!";
+                break;
+        }
+
+        UpdateUI();
+        EndOrContinue();
+    }
+
+    private void EndOrContinue()
+    {
+        UpdateUI();
+        if (enemyHP <= 0)
+        {
+            dialogueText.text = $"{enemyName} was defeated! You win!";
+            battleOver = true;
+        }
+        else if (playerCurrentHP <= 0)
+        {
+            dialogueText.text = $"You fainted! {enemyName} wins!";
+            battleOver = true;
+        }
+        else
+        {
+            StartCoroutine(SwitchTurn());
+        }
+    }
+
+    private IEnumerator SwitchTurn()
+    {
+        yield return new WaitForSeconds(1f);
+        playerTurn = !playerTurn;
+        if (!playerTurn)
+        {
+            dialogueText.text = $"{enemyName}'s turn!";
+            StartCoroutine(EnemyTurn());
+        }
+        else
+        {
+            dialogueText.text = "Your turn! Choose an action.";
+        }
     }
 }
