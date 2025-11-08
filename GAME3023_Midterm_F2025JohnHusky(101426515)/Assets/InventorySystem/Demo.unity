@@ -2278,7 +2278,7 @@ MonoBehaviour:
   m_ChildAlignment: 5
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 32, y: 32}
+  m_CellSize: {x: 64, y: 64}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -16346,6 +16346,7 @@ MonoBehaviour:
   Inventory: {fileID: 1390945723}
   Weapon: {fileID: 1437203605}
   Armor: {fileID: 206967296}
+  UISFXmain: {fileID: 0}
 --- !u!4 &1369219409
 Transform:
   m_ObjectHideFlags: 0
@@ -17219,7 +17220,7 @@ MonoBehaviour:
   m_ChildAlignment: 3
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 32, y: 32}
+  m_CellSize: {x: 64, y: 64}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
