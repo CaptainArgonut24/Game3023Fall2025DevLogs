@@ -17,6 +17,7 @@ public class ItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     [Header("Slot Settings")]
     public bool isCoveredSlot = false;
     public ItemSlot linkedSlot;
+    public bool canCombineItems = false; // can combine items of the same type in this slot
 
     [Header("Player Stats")]
     public int playerStat = 0;
@@ -157,6 +158,13 @@ public class ItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
         UpdateGraphic();
         draggedSlot.UpdateGraphic();
+
+        if (transform.childCount == 0)
+        {
+            GameObject dropped = eventData.pointerDrag;
+            DraggableItem draggableItem = dropped.GetComponent<DraggableItem>();
+            draggableItem.parentAfterDrag = transform;
+        }
     }
 
     //ICON MANAGEMENT
