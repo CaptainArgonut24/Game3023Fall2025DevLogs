@@ -146,7 +146,6 @@ GameObject:
   - component: {fileID: 2297959918494351241}
   - component: {fileID: 4453378958206969131}
   - component: {fileID: 5093908452285321559}
-  - component: {fileID: 6076881144078000223}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -226,15 +225,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 4453378958206969131}
   parentAfterDrag: {fileID: 0}
---- !u!114 &6076881144078000223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6075697847768946524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf468238c7540b74c9af341e7fa8bad7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

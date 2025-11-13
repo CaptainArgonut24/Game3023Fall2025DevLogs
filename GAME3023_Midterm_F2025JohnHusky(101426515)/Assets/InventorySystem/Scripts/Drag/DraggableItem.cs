@@ -6,6 +6,21 @@ using UnityEngine.EventSystems;
 public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Image image;
+
+    //item data
+    // item prefab scibtble object
+    // quantity text
+    // key code to move
+    // key code to click item
+
+
+    //for exturanl uis
+    // item name text
+    // item description text
+
+
+
+
     [HideInInspector] public Transform parentAfterDrag;
     public void OnBeginDrag(PointerEventData eventData)
     {
