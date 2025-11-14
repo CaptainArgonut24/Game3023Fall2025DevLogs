@@ -34,7 +34,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public KeyCode useKey = KeyCode.Mouse1;
 
     [Header("Swap Settings")]
-    public bool allowItemSwap = true;  // <-- NEW TOGGLE
+    public bool allowItemSwap = true;  
 
     [HideInInspector] public Transform parentAfterDrag;
 
