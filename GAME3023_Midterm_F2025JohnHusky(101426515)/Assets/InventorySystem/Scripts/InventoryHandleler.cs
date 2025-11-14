@@ -87,7 +87,7 @@ public class InventoryHandleler : MonoBehaviour
     {
         foreach (var slot in itemSlots)
         {
-            for (int i = slot.transform.childCount - 1; i >= 0; i--) //
+            for (int i = slot.transform.childCount - 1; i >= 0; i--) // make sure all slots are filled or it will break here
             {
                 Destroy(slot.transform.GetChild(i).gameObject);
                 
