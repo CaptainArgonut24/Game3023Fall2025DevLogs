@@ -233,7 +233,7 @@ MonoBehaviour:
   height: 1
   itemName: Yellow
   iconTarget: {fileID: 4453378958206969131}
-  itemCountText: {fileID: 0}
+  itemCountText: {fileID: 8501837028436776507}
   itemNameText: {fileID: 2281533774656792185, guid: 66f8b456bf5f41b428a0d050db1da4c7, type: 3}
   itemDescriptionText: {fileID: 5039965470662810596, guid: 7f8c287cf5a6ffb4285db8e365e7ab47, type: 3}
   dragKey: 323

@@ -10,10 +10,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public Image image;
 
     [Header("Item Info")]
-    // data lives on this component now
     public int count = 0;
 
-    // local item data (used instead of Item scriptable object)
     public Sprite icon;
     public string description = "";
     public bool isConsumable = false;
@@ -22,33 +20,29 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public int height = 1;
     public string itemName = "";
 
-    // Optional: separate Image target for the item icon in the UI.
-    // If null, `image` will be used as the icon target.
     [Header("Icon Target (optional)")]
     [SerializeField] private Image iconTarget;
-
     [SerializeField] private TextMeshProUGUI itemCountText;
 
     [Header("Item Name & Description UI")]
     public TextMeshProUGUI itemNameText;
     public TextMeshProUGUI itemDescriptionText;
 
-
     [Header("Drag & Use Keys")]
     public KeyCode dragKey = KeyCode.Mouse0;
     public KeyCode useKey = KeyCode.Mouse1;
 
-    // add loige and toggle for items to swap placeses  someone places item on another
+    [Header("Swap Settings")]
+    public bool allowItemSwap = true;  // <-- NEW TOGGLE
 
     [HideInInspector] public Transform parentAfterDrag;
 
     private bool isDragging = false;
+    private Transform originalSlot; // <-- store the original slot
 
     private void Start()
     {
         UpdateCountText();
-        // Ensure UI reflects local data at start
-        // Apply icon on load to configured target
         ApplyIcon(icon);
     }
 
@@ -58,7 +52,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         itemCountText.text = count > 0 ? count.ToString() : "0";
     }
 
-    // Apply sprite to the icon target (iconTarget if assigned, otherwise fallback to image)
     private void ApplyIcon(Sprite s)
     {
         if (s == null) return;
@@ -66,63 +59,110 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         if (target != null) target.sprite = s;
     }
 
-    // Public so other systems can request the item UI be refreshed
     public void newTEXT()
     {
-        // Update item name and description UI
         if (itemNameText != null) itemNameText.text = itemName;
         if (itemDescriptionText != null) itemDescriptionText.text = description;
     }
-public void OnBeginDrag(PointerEventData eventData)
-    {
-        Debug.Log("Begin drag");
 
-        // update UI from local fields when dragging starts
+    // ─────────────────────────────────────────────
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
         newTEXT();
 
         isDragging = true;
-
+        originalSlot = transform.parent; // <-- remember original slot
         parentAfterDrag = transform.parent;
+
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
+
         if (image != null) image.raycastTarget = false;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("Dragging");
         transform.position = Input.mousePosition;
         newTEXT();
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("End drag");
+        // Check the object under the cursor
+        GameObject hoveredObj = eventData.pointerCurrentRaycast.gameObject;
 
-        isDragging = false;
+        // no valid slot hit → return to original slot
+        if (hoveredObj == null)
+        {
+            ReturnToOriginalSlot();
+            return;
+        }
 
-        transform.SetParent(parentAfterDrag);
+        // Check if it's a valid slot
+        Transform targetSlot = hoveredObj.GetComponent<DraggableItem>() == null
+            ? hoveredObj.transform // just a slot (empty)
+            : hoveredObj.transform.parent; // hit another item, get its parent slot
+
+        DraggableItem otherItem = targetSlot.GetComponentInChildren<DraggableItem>();
+
+        // CASE 1: Slot occupied & swap allowed
+        if (otherItem != null && otherItem != this && allowItemSwap)
+        {
+            SwapItems(otherItem);
+        }
+        else
+        {
+            // CASE 2: Slot empty OR swap disabled → default behavior
+            transform.SetParent(targetSlot);
+        }
+
+        transform.localPosition = Vector3.zero;
+
         if (image != null) image.raycastTarget = true;
+        isDragging = false;
     }
 
-    // Handle clicks to consume the item and update UI
+    // ─────────────────────────────────────────────
+    // RETURN TO ORIGINAL SLOT
+    private void ReturnToOriginalSlot()
+    {
+        transform.SetParent(originalSlot);
+        transform.localPosition = Vector3.zero;
+
+        if (image != null) image.raycastTarget = true;
+        isDragging = false;
+    }
+
+    // ─────────────────────────────────────────────
+    // SWAP ITEMS FUNCTION
+    private void SwapItems(DraggableItem other)
+    {
+        Transform otherSlot = other.transform.parent;
+
+        // move other item to your old slot
+        other.transform.SetParent(originalSlot);
+        other.transform.localPosition = Vector3.zero;
+
+        // move YOU to their old slot
+        transform.SetParent(otherSlot);
+        transform.localPosition = Vector3.zero;
+    }
+
+    // ─────────────────────────────────────────────
+
     public void OnPointerClick(PointerEventData eventData)
     {
-        // Ignore clicks that happen while dragging
         if (isDragging) return;
 
-        // Only respond to left-click
         if (eventData.button != PointerEventData.InputButton.Left) return;
 
-        // FIRST update the UI
         newTEXT();
 
-        // Subtract one and update UI/remove if zero
         count = Mathf.Max(0, count - 1);
 
         if (count <= 0)
         {
-            // Clear UI so it does not show deleted item
             if (itemNameText != null) itemNameText.text = "";
             if (itemDescriptionText != null) itemDescriptionText.text = "";
 
@@ -131,7 +171,5 @@ public void OnBeginDrag(PointerEventData eventData)
         }
 
         UpdateCountText();
-        Debug.Log("Updated UI for item: " + itemName);
     }
-
 }
