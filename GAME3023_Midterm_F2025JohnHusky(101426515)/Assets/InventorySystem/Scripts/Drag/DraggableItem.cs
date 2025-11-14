@@ -38,6 +38,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public KeyCode dragKey = KeyCode.Mouse0;
     public KeyCode useKey = KeyCode.Mouse1;
 
+    // add loige and toggle for items to swap placeses  someone places item on another
+
     [HideInInspector] public Transform parentAfterDrag;
 
     private bool isDragging = false;
