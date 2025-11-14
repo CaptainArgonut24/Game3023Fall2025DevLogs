@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class Toggle : MonoBehaviour
@@ -6,6 +7,7 @@ public class Toggle : MonoBehaviour
     public GameObject Inventory;
     public GameObject Weapon;
     public GameObject Armor;
+
 
 
     [Header("Sound FX")]
@@ -37,4 +39,5 @@ public class Toggle : MonoBehaviour
         Armor.SetActive(false);
 
     }
+
 }

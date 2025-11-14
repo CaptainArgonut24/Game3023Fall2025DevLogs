@@ -11174,8 +11174,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1369219409}
   - component: {fileID: 1369219408}
+  - component: {fileID: 1369219410}
   m_Layer: 0
-  m_Name: Toggle
+  m_Name: CORE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11212,6 +11213,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1369219410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369219407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ed3ebd92b4adf44d8621d3807555ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  STR: 0
+  DEX: 0
+  INT: 0
+  DEF: 0
+  STA: 0
+  MANA: 50
+  HEALTH: 100
+  LVL: 1
+  ItemName: Item Name
+  ItemDIS: This is an item description
+  STR_Text: {fileID: 573400710361583591}
+  DEX_Text: {fileID: 8471925346113256578}
+  INT_Text: {fileID: 443868521422188326}
+  DEF_Text: {fileID: 1582637663365082352}
+  STA_Text: {fileID: 6075456548120234866}
+  MANA_Text: {fileID: 5395776375440523569}
+  HEALTH_Text: {fileID: 8591434507076411411}
+  LVL_Text: {fileID: 8658055018042564654}
+  itemNameText: {fileID: 5564582172530291526}
+  itemDescriptionText: {fileID: 1181901894}
 --- !u!1 &1371081151 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2504064854583286233, guid: 64edbb5b8055b334793d9e11a4a6c25a, type: 3}
@@ -11230,7 +11263,7 @@ GameObject:
   - component: {fileID: 1377833506}
   - component: {fileID: 1377833505}
   m_Layer: 5
-  m_Name: Toggle_Inventory
+  m_Name: Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12296,7 +12329,7 @@ GameObject:
   - component: {fileID: 1611069086}
   - component: {fileID: 1611069085}
   m_Layer: 5
-  m_Name: Toggle_Weapon
+  m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19362,7 +19395,7 @@ GameObject:
   - component: {fileID: 2091098262}
   - component: {fileID: 2091098261}
   m_Layer: 5
-  m_Name: Toggle_Armor
+  m_Name: Armor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25805,6 +25838,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3429609246660025670}
     m_Modifications:
+    - target: {fileID: 5093908452285321559, guid: 3455dd37dd999a94ead0cd99f651a51a, type: 3}
+      propertyPath: itemNameText
+      value: 
+      objectReference: {fileID: 5564582172530291526}
+    - target: {fileID: 5093908452285321559, guid: 3455dd37dd999a94ead0cd99f651a51a, type: 3}
+      propertyPath: itemDescriptionText
+      value: 
+      objectReference: {fileID: 1181901894}
     - target: {fileID: 6075697847768946524, guid: 3455dd37dd999a94ead0cd99f651a51a, type: 3}
       propertyPath: m_Name
       value: Item
@@ -26546,7 +26587,7 @@ GameObject:
   - component: {fileID: 6005531609871114617}
   - component: {fileID: 6005531609871114616}
   m_Layer: 5
-  m_Name: Toggle_Inventory
+  m_Name: TogInventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
