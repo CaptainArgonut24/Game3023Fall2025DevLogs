@@ -1,74 +1,168 @@
-# 🎒 Grid-Based Inventory System Package  
+# 🎒 Grid-Based Inventory System  
 **GAME3023 – Midterm Exam (Fall 2025)**  
 **Author:** John Husky  
 **Student ID:** 101426515  
 **Date:** November 14, 2025  
----
-This project was built from the **provided starter project**, maintaining its art style and UI structure while extending its functionality and organization.
+
+This project is built using the **provided starter project**, keeping its original UI style and art direction while expanding the functionality, structure, and developer workflow.
 
 ---
 
 ## 🧩 Overview
-This Unity package implements a **grid-based inventory system** template for unity 2d. can be used for 3d, but this was built for 2d. this dev pack can allow the deive esily t o make a item inviory system that you can drag and drop into mutle slots.
-Items have shapes and sizes that occupy grid cells within **inventory containers** (such as a backpack, chest, or shop or whatevr).  
-Players can **drag and drop items**, and developers can easily create or customize new items and containers without modifying core code.
-eary for the player, easy for teh dev
 
+This Unity package implements a **grid-based inventory system** designed for **2D games**, with optional support for 3D setups.  
+It provides an easy plug-and-play structure where developers can create item inventories with drag-and-drop interaction across multiple slot grids.
 
+Items have customizable shapes and sizes and occupy grid cells inside **inventory containers** such as backpacks, chests, and shops.  
+Players can freely **drag, drop, move, and (optionally) swap items**, while developers can create new items or inventory panels without modifying core code.
 
 ---
 
 ## 🎮 Player Features
-- 🧱 **Grid-Based Slots:** Each item has defined dimensions (e.g., 1x1, 2x2) that the dev can set.
-- items can be swaped locations, depending on the devs settins,
-- 🖱️ **Drag & Drop Support:** Move items within a container or between containers using mouse drag.
-- 🚫 **Collision Checking:** Items cannot overlap or be placed outside the container bounds.
 
+- 🧱 **Grid-Based Item Placement**  
+  Each item has developer-defined dimensions (1×1, 2×2, etc.).
+
+- 🔄 **Optional Item Swapping**  
+  Items can swap positions if swapping is enabled in the settings.
+
+- 🖱️ **Drag & Drop Interaction**  
+  Items can be moved within or between inventory containers.
+
+- 🚫 **Collision & Boundary Checking**  
+  Items cannot overlap or exceed container bounds.
+
+---
+
+## 🧰 Developer Features
+
+- ⚙️ **ScriptableObject / Prefab Item Templates**  
+  Items store all required data (name, description, icon, size, amount, etc.).
+
+- 🧩 **Modular UI Setup**  
+  Build multiple inventory sections (Backpack, Chest, Shop, etc.) with customizable grid dimensions.
+
+- 📦 **Generic Grid System**  
+  Supports any number of rows/columns and any item size.
+
+- 🔧 **Fast & Simple Setup**  
+  Developers only assign slot objects, item definitions, and optional data sources.  
+  The system automatically generates the final UI at runtime.
 
 ---
 
-## 🧰 Developer Features (Back-End)
-- ⚙️ **Scriptable Item and prefabs templates Data:** Each item is defined as a ScriptableObject/ prefab containing all the data needed to run.
-- 📦 **Modular ui set up:** Create different sections, pannales (e.g., Player Backpack, Chest, Shop) and set their sizes using customizable grid dimensions.
-- 🧩 **Generic Grid System:** Supports different item sizes and grid configurations.
-- 🔧 **Easy Setup:** all the Developers need to do is assign the slots to tehir likeing, items, datastore, ect. all this does it shows where teh diretory is and disblase it in real time for teh player. 
----
-how it works
+## ⚙️ How the System Works
 
-the invatiry grid works by the dev putting all avilves slots into a list, then takeing all the items, and how many times tey want to apreir on the grid. then when it loeds all the items takeingf orm the list will show up in oder or randoly on the grid alowung the users to mobve and swap places iwth other items on the grid without it leaveing the grid.
-
----
-how to set up
-all the suff you'll need is in the "InventorySystem" folder insded of assests, scriots,m prefabs, scrible objects, spriets ect. 
-
-- make an item: either with the Pefab (ItemPrefab.BASE) or the Scriptable Objects (Scriptable Objects.TEST) set all the info you want, scuh as, name, discriptoio, ammount ect
-- InventoryHandleler: This script builds an inventory UI by taking a list of item slots and filling them with item prefabs according to how many copies you configure. When the game starts, it runs BuildInventory(), which first clears all old items from the slots, then chooses which item list to use (either the default list or an external data source if enabled). It expands those entries into a flat list based on their quantities, optionally adds empty spaces, and then either keeps the order or shuffles it. Finally, it loops through the UI slots and instantiates each item prefab into the corresponding slot. The script basically automates generating an inventory layout when the game starts, with optional randomization and external data support.
-- DraggableItem: This script controls how an inventory item behaves when clicked, dragged, or swapped. It tracks item data like name, description, icon, and quantity, updates the UI text, and remembers the original slot when dragging begins. While dragging, the item follows the mouse and temporarily moves to the top of the UI. When released, the script checks what the mouse is over: if it's an empty slot, the item snaps there; if it's another item and swapping is allowed, the two items switch places; otherwise it returns to its original slot. Clicking the item (without dragging) consumes one quantity and updates the text, destroying the item if its count reaches zero.
-- InventorySlot: This script controls what happens when a draggable item is dropped onto an inventory slot. It implements IDropHandler, so Unity calls OnDrop() when the mouse releases an item over this slot. If the slot is empty (has no children), it takes the dragged object and updates that item’s parentAfterDrag so the DraggableItem script knows this slot is its new home. The slot doesn’t move the item itself—it simply tells the dragged item where it should be placed after the drag ends.
-
-
-
+1. The developer assigns all inventory slot GameObjects into a list.  
+2. The developer assigns item definitions and specifies how many of each item should appear.  
+3. The system expands those items into a full list (based on quantity).  
+4. It optionally randomizes the order.  
+5. The grid is populated with one item per slot on load.  
+6. The player can then move or swap items—items never leave the grid unless consumed or removed.
 
 ---
-known bubgs
 
-- item name and discuprion donst dupate constlinyt
-- TMP is buggy, might be my PCs
-- pull from user data is hit or miss
-- mutples slots brik the game. so its commented out.
-- assing can be a bit janky.
-- 
+## 🛠️ How to Set Up
 
+All tools and assets are located in the **InventorySystem** folder:
 
+- Scripts  
+- Prefabs  
+- ScriptableObjects  
+- Sprites  
+- Example scenes  
 
-**References:**  
-- Unity Manual: [for refrince help](https://docs.unity3d.com/Manual/UISystem.html)  
-- Drag and drop base and ideas:  https://www.youtube.com/watch?v=kWRyZ3hb1Vc, https://www.youtube.com/watch?v=oJAE6CbsQQA&t, https://www.youtube.com/watch?v=rWMvQwwGOtg&t, https://www.youtube.com/playlist?list=PLSR2vNOypvs6eIxvTu-rYjw2Eyw57nZrU
-- all asets were from the proveded starter pprohect
--  Scriptable Objects(want used much):  https://www.youtube.com/watch?v=tuc_6ooZE1Q
--  chat bot and coplie for clean up and spile error fixing (eg, mispladed formating or values)
--  looking at how othe people ask the same question: https://www.reddit.com/r/unity/comments/ykyout/best_way_to_create_an_inventory_system/
--  some otehr helpful tudtoresas and links used for ideas and help: https://www.youtube.com/watch?v=SGz3sbZkfkg, [https://www.youtube.com/watch?v=SGz3sbZkfkg],(https://www.youtube.com/watch?v=-IPjFSWeyrg), https://jaredamlin.medium.com/setting-up-an-inventory-system-with-scriptable-objects-in-unity-176599ca49bb, https://discussions.unity.com/t/how-to-script-an-inventory-system/922301, https://gamedev.stackexchange.com/questions/211432/how-to-structure-a-complex-inventory-system-in-unity, https://www.youtube.com/playlist?list=PLcRSafycjWFegXSGBBf4fqIKWkHDw_G8D. 
+### ✔ Creating an Item
+
+You can make an item using either:
+
+- **Prefab Template:** `ItemPrefab.BASE`  
+- **ScriptableObject Template:** `ScriptableObjects.TEST`
+
+Configure fields such as:
+
+- Item Name  
+- Description  
+- Icon  
+- Quantity  
+- Dimensions  
+- Any custom data your project needs  
+
 ---
 
-compaion video: 
+## 📜 Script Breakdown
+
+### **InventoryHandler**
+- Builds the UI inventory by taking a list of slots and filling them with item prefabs.
+- Generates a complete list of items based on quantity.
+- Can randomize item order.
+- Supports using default or external data sources.
+- Automatically clears and repopulates the inventory on load.
+
+> In short: **It auto-generates the entire inventory layout at runtime.**
+
+---
+
+### **DraggableItem**
+Handles all player interaction:
+
+- Stores item data (name, icon, description, quantity).  
+- Updates the UI text dynamically.  
+- Saves its original slot when dragging begins.  
+- Follows the mouse and moves to the top of the UI hierarchy while dragging.  
+- On drop:
+  - Empty slot → item moves there  
+  - Occupied slot (swap enabled) → items swap  
+  - Invalid spot → returns to original slot  
+- Clicking (without dragging) consumes one item and destroys the object when quantity reaches 0.
+
+---
+
+### **InventorySlot**
+- Implements **IDropHandler** to detect item drops.  
+- Accepts an item only if the slot is empty.  
+- Updates the item’s `parentAfterDrag` reference, allowing DraggableItem to finalize placement.
+
+---
+
+## 🐞 Known Issues
+
+- Item name and description don’t update consistently.  
+- TextMeshPro can be unreliable depending on the machine.  
+- User data loading (save data) may fail intermittently.  
+- Multiple inventory panels at once may break layout logic.  
+- Slot assignment can sometimes feel inconsistent.
+
+---
+
+## 📚 References & Resources
+
+- Unity UI Manual  
+  https://docs.unity3d.com/Manual/UISystem.html
+
+- Drag & Drop Tutorials  
+  https://www.youtube.com/watch?v=kWRyZ3hb1Vc  
+  https://www.youtube.com/watch?v=oJAE6CbsQQA  
+  https://www.youtube.com/watch?v=rWMvQwwGOtg  
+  https://www.youtube.com/playlist?list=PLSR2vNOypvs6eIxvTu-rYjw2Eyw57nZrU
+
+- ScriptableObject Tutorial  
+  https://www.youtube.com/watch?v=tuc_6ooZE1Q
+
+- Additional Reading  
+  https://www.reddit.com/r/unity/comments/ykyout/best_way_to_create_an_inventory_system/  
+  https://www.youtube.com/watch?v=SGz3sbZkfkg  
+  https://www.youtube.com/watch?v=-IPjFSWeyrg  
+  https://jaredamlin.medium.com/setting-up-an-inventory-system-with-scriptable-objects-in-unity-176599ca49bb  
+  https://discussions.unity.com/t/how-to-script-an-inventory-system/922301  
+  https://gamedev.stackexchange.com/questions/211432/how-to-structure-a-complex-inventory-system-in-unity  
+  https://www.youtube.com/playlist?list=PLcRSafycjWFegXSGBBf4fqIKWkHDw_G8D  
+
+- Assets used are from the provided course starter project.
+
+---
+
+## 🎥 Companion Video  
+*(Add the final link here once uploaded)*
+
+---
