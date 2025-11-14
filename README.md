@@ -159,6 +159,7 @@ Handles all player interaction:
   https://www.youtube.com/playlist?list=PLcRSafycjWFegXSGBBf4fqIKWkHDw_G8D  
 
 - Assets used are from the provided course starter project.
+- ChatBotGTP, JetBrains and Copilot Used to help with errors and mising links. 
 
 ---
 
