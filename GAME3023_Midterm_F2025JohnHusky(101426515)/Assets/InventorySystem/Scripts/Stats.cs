@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+// self explanatory, stats store player stats and update UI
 public class StatsScript : MonoBehaviour
 {
     [Header("Default Stats")]

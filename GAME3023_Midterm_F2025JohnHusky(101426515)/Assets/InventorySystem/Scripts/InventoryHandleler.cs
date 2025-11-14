@@ -11,6 +11,8 @@ public class InventoryItemEntry
 
 public class InventoryHandleler : MonoBehaviour
 {
+
+    // self explanatory
     [Header("Slot Settings")]
     [Tooltip("All UI slot GameObjects where items will be placed.")]
     public List<GameObject> itemSlots = new List<GameObject>();
@@ -34,11 +36,19 @@ public class InventoryHandleler : MonoBehaviour
 
     private List<GameObject> generatedItems = new List<GameObject>();
 
+    //[Header("set up using scible objects")]
+    // toggle/ defult its off
+    //drobdwn box to add the scriptable object
+
+    /// <summary>
+    /// 
+    /// </summary>
+
     private void Start()
     {
         BuildInventory();
     }
-
+    // how the inventory is built
     public void BuildInventory()
     {
         ClearInventory();
@@ -82,7 +92,7 @@ public class InventoryHandleler : MonoBehaviour
             }
         }
     }
-
+    // self explanatory
     private void ClearInventory()
     {
         foreach (var slot in itemSlots)
@@ -95,7 +105,7 @@ public class InventoryHandleler : MonoBehaviour
         }
         generatedItems.Clear();
     }
-
+    // self explanatory
     private void Shuffle(List<GameObject> list)
     {
         for (int i = 0; i < list.Count; i++)
@@ -107,7 +117,7 @@ public class InventoryHandleler : MonoBehaviour
         }
     }
 }
-
+//testing something
 public class InventoryExternalData
 {
     public List<InventoryItemEntry> itemEntries;

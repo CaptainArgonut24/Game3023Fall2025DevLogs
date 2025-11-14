@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class InventorySlot : MonoBehaviour, IDropHandler
 {
-
+    // handels when an item is dropped into the inventory slot
     public void OnDrop(PointerEventData eventData)
     {
         if (transform.childCount == 0)

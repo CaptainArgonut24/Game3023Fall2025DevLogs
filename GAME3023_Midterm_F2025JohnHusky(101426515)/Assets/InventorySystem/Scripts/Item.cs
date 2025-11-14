@@ -1,6 +1,6 @@
 using TMPro;
 using UnityEngine;
-
+// to make an item scriptable object via code inseded of just a prefab
 //Attribute which allows right click->Create
 [CreateAssetMenu(fileName = "New Item", menuName = "Items/New Item")]
 public class Item : ScriptableObject //Extending SO allows us to have an object which exists in the project, not in the scene

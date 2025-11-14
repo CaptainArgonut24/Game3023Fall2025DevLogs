@@ -1,12 +1,12 @@
 using TMPro;
 using UnityEngine;
-
+// self explanatory
 public class Toggle : MonoBehaviour
 {
     [Header("UI Elements")]
     public GameObject Inventory;
     public GameObject Weapon;
-    public GameObject Armor;
+    public GameObject Cosmetics;
 
 
 
@@ -22,21 +22,21 @@ public class Toggle : MonoBehaviour
     {
         Inventory.SetActive(false);
         Weapon.SetActive(true);
-        Armor.SetActive(false);
+        Cosmetics.SetActive(false);
 
     }
     public void OpenArmor()
     {
         Inventory.SetActive(false);
         Weapon.SetActive(false);
-        Armor.SetActive(true);
+        Cosmetics.SetActive(true);
 
     }
     public void OpenInventory()
     {
         Inventory.SetActive(true);
         Weapon.SetActive(false);
-        Armor.SetActive(false);
+        Cosmetics.SetActive(false);
 
     }
 
