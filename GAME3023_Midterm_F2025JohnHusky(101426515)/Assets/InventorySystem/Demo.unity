@@ -14866,7 +14866,9 @@ MonoBehaviour:
     quantity: 2
   - itemPrefab: {fileID: 6075697847768946524, guid: e4edd3fcf65dad246a427a55dcf06e10, type: 3}
     quantity: 2
-  emptySlotCount: 10
+  - itemPrefab: {fileID: 6075697847768946524, guid: 8e3757b84b79b5649b939e6317aea7bf, type: 3}
+    quantity: 1
+  emptySlotCount: 9
   randomPlacement: 1
   useExternalDataSource: 0
 --- !u!1 &1876044018 stripped
