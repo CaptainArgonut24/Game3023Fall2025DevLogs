@@ -164,6 +164,6 @@ Handles all player interaction:
 ---
 
 ## 🎥 Companion Video  
-*(Add the final link here once uploaded)*
+https://youtu.be/xb5cgB7wFFY
 
 ---
