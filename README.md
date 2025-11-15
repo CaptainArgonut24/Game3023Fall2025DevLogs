@@ -114,7 +114,7 @@ Handles all player interaction:
   - Empty slot → item moves there  
   - Occupied slot (swap enabled) → items swap  
   - Invalid spot → returns to original slot  
-- Clicking (without dragging) consumes one item and destroys the object when quantity reaches 0.
+- Clicking (without dragging) consumes one item and destroys the object when the quantity reaches 0.
 
 ---
 
@@ -132,6 +132,7 @@ Handles all player interaction:
 - User data loading (save data) may fail intermittently.  
 - Multiple inventory panels at once may break layout logic.  
 - Slot assignment can sometimes feel inconsistent.
+- Some items merge depending on the image when moving them to another slot with another item.
 
 ---
 
@@ -159,7 +160,7 @@ Handles all player interaction:
   https://www.youtube.com/playlist?list=PLcRSafycjWFegXSGBBf4fqIKWkHDw_G8D  
 
 - Assets used are from the provided course starter project.
-- ChatBotGTP, JetBrains and Copilot Used to help with errors and mising links. Also writeing and spelling checks.  
+- ChatBotGTP, JetBrains and Copilot used to help with errors and missing links. Also writing and spelling checks.  
 
 ---
 
