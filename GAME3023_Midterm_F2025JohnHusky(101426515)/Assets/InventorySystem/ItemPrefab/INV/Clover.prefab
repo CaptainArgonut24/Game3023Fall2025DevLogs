@@ -226,7 +226,7 @@ MonoBehaviour:
   image: {fileID: 4453378958206969131}
   count: 50
   icon: {fileID: 21300000, guid: 720a7d9f64013ef41acc4c5f46c1280f, type: 3}
-  description: An ordinary clover. Not particularly lucky, but not unlucky either
+  description: TBD
   isConsumable: 1
   width: 1
   height: 1
@@ -237,4 +237,5 @@ MonoBehaviour:
   itemDescriptionText: {fileID: 5039965470662810596, guid: 7f8c287cf5a6ffb4285db8e365e7ab47, type: 3}
   dragKey: 323
   useKey: 324
+  allowItemSwap: 1
   parentAfterDrag: {fileID: 0}
