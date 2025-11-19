@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc860cfa61858394ab7b34bb84ab5087, type: 3}
+  m_Name: PlayerDDSSOB
+  m_EditorClassIdentifier: 
+  HP: 0
+  XP: 0
+  Level: 0
+  PlayerName: 
+  Gold: 0
+  Teleporter: 0
+  BEEFUP: 0
+  Star: 0
+  DisguiseBag: 0
+  Shovel: 0
+  ToppatDiamond: 0
+  NRGDrink: 0
+  Chese: 0
+  RubiksCube: 0
+  GatlingGun: 0
+  Disguise: 0
+  StickyHand: 0
+  BananaPeel: 0
+  LaserCutter: 0
+  WormholeRifle: 0
+  PoisonDartGun: 0
+  TheForce: 0
+  ShrinkRay: 0
+  Cake: 0
+  FireBlast: 0
+  IceBeam: 0
+  ThunderStrike: 0
+  WaterPulse: 0
+  RockSmash: 0
+  DarkWave: 0
+  SolarBeam: 0
+  PsychicBurst: 0
+  Unlocked_FireBlast: 0
+  Unlocked_IceBeam: 0
+  Unlocked_ThunderStrike: 0
+  Unlocked_WaterPulse: 0
+  Unlocked_RockSmash: 0
+  Unlocked_DarkWave: 0
+  Unlocked_SolarBeam: 0
+  Unlocked_PsychicBurst: 0
+  MainLastPos: {x: 0, y: 0}
