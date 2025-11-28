@@ -218,9 +218,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1411225706}
-        m_TargetAssemblyTypeName: MAINMENUUI, Assembly-CSharp
-        m_MethodName: StartNewGame
+      - m_Target: {fileID: 200730370}
+        m_TargetAssemblyTypeName: SaveLoadData, Assembly-CSharp
+        m_MethodName: LoadGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -536,6 +536,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 167946656}
   m_CullTransparentMesh: 1
+--- !u!114 &200730370 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3813359979468691161, guid: c5fbcfee4dcf51a4e88eeef327aad6d6, type: 3}
+  m_PrefabInstance: {fileID: 5265138204379685012}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eca16168aee21444aaad32f43ba3bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &219966175
 GameObject:
   m_ObjectHideFlags: 0
@@ -4364,7 +4375,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1273967538
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4473,7 +4484,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1411225706}
         m_TargetAssemblyTypeName: MAINMENUUI, Assembly-CSharp
-        m_MethodName: QuitGame
+        m_MethodName: StartNewGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6522,7 +6533,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1935373254
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7761,6 +7772,14 @@ PrefabInstance:
       propertyPath: gameData
       value: 
       objectReference: {fileID: 233082721}
+    - target: {fileID: 3813359979468691161, guid: c5fbcfee4dcf51a4e88eeef327aad6d6, type: 3}
+      propertyPath: dataObject
+      value: 
+      objectReference: {fileID: 233082721}
+    - target: {fileID: 3813359979468691161, guid: c5fbcfee4dcf51a4e88eeef327aad6d6, type: 3}
+      propertyPath: autoSaveInterval
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

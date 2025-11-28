@@ -5,20 +5,16 @@ using System.Text;
 public class SaveLoadData : MonoBehaviour
 {
     [Header("=== References ===")]
-    public GameData dataObject;   // Drag your GameData ScriptableObject here
+    public GameData dataObject;   // Drag your GameData object here
 
     [Header("=== Saving Options ===")]
-    public bool autoSaveEnabled = true;
-    public float autoSaveInterval = 30f; // seconds
+    public bool autoSaveEnabled = true;   // Toggle for Auto Save
+    public float autoSaveInterval = 30f;  // Seconds
     public bool encryptData = false;
-
-    [Header("=== Manual Save / Load Buttons ===")]
-    public bool manualSaveButton;
-    public bool manualLoadButton;
 
     private float saveTimer = 0f;
 
-    // File paths
+    // File + Folder info
     private string folderPath;
     private string filePath;
 
@@ -27,70 +23,45 @@ public class SaveLoadData : MonoBehaviour
         folderPath = Path.Combine(Application.dataPath, "SAVEDGAMES");
         filePath = Path.Combine(folderPath, "AUTOSAVE.json");
 
+        // Create folder if missing
         if (!Directory.Exists(folderPath))
             Directory.CreateDirectory(folderPath);
+
+        // -----------------------
+        // Load game FIRST (before any save logic runs)
+        // -----------------------
+        LoadGame();
     }
 
     private void Update()
     {
-        // Manual load button trigger
-        if (manualLoadButton)
-        {
-            manualLoadButton = false;
-            ManualLoad();
-        }
-
-        // Manual save button trigger
-        if (manualSaveButton)
-        {
-            manualSaveButton = false;
-            ManualSave();
-        }
-
-        // Auto-save
+        // Auto save disabled? Stop here
         if (!autoSaveEnabled) return;
 
         saveTimer += Time.deltaTime;
 
         if (saveTimer >= autoSaveInterval)
         {
-            AutoSave();
+            SaveGame();
             saveTimer = 0f;
         }
     }
 
-    // ============================================================
-    // AUTO SAVE (always loads first)
-    // ============================================================
-    private void AutoSave()
-    {
-        LoadGame();  // <-- load first
-        SaveGame();
-        Debug.Log("Auto-saved the game.");
-    }
-
-    // ============================================================
-    // MANUAL SAVE BUTTON
-    // ============================================================
+    // ------------------------- MANUAL SAVE -------------------------
     public void ManualSave()
     {
-        LoadGame();   // <-- load first
+        Debug.Log("Manual Save Triggered");
         SaveGame();
-        Debug.Log("Manual Save Completed.");
     }
 
-    // ============================================================
-    // MANUAL LOAD BUTTON
-    // ============================================================
+    // ------------------------- MANUAL LOAD -------------------------
     public void ManualLoad()
     {
+        Debug.Log("Manual Load Triggered");
         LoadGame();
-        Debug.Log("Manual Load Completed.");
     }
 
-    // ============================================================
-    // SAVE GAME
-    // ============================================================
+    // ------------------------- SAVE FUNCTION -------------------------
     public void SaveGame()
     {
         if (dataObject == null)
@@ -99,13 +70,17 @@ public class SaveLoadData : MonoBehaviour
             return;
         }
 
+        // Update last saved time
         dataObject.lastUpdated = System.DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
+        // Convert GameData -> JSON
         string json = JsonUtility.ToJson(dataObject, true);
 
+        // Encryption
         if (encryptData)
             json = Encrypt(json);
 
+        // Ensure save folder exists
         if (!Directory.Exists(folderPath))
             Directory.CreateDirectory(folderPath);
 
@@ -114,33 +89,32 @@ public class SaveLoadData : MonoBehaviour
         Debug.Log("Game Saved to: " + filePath);
     }
 
-    // ============================================================
-    // LOAD GAME
-    // ============================================================
+    // ------------------------- LOAD FUNCTION -------------------------
     public void LoadGame()
     {
         if (!File.Exists(filePath))
         {
-            Debug.LogWarning("No AUTOSAVE.json found to load!");
+            Debug.LogWarning("No AUTOSAVE.json found! Creating new save data.");
             return;
         }
 
         string json = File.ReadAllText(filePath);
 
+        // Decrypt if needed
         if (encryptData)
             json = Decrypt(json);
 
+        // Overwrite current data object
         JsonUtility.FromJsonOverwrite(json, dataObject);
 
+        // Move player to saved position (if exists)
         if (dataObject.player != null)
             dataObject.player.position = dataObject.playerPosition;
 
         Debug.Log("Game Loaded from: " + filePath);
     }
 
-    // ============================================================
-    // ENCRYPTION
-    // ============================================================
+    // ---------------------- Encryption -----------------------
     private string Encrypt(string plainText)
     {
         byte[] bytes = Encoding.UTF8.GetBytes(plainText);
