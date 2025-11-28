@@ -27,15 +27,12 @@ public class SaveLoadData : MonoBehaviour
         if (!Directory.Exists(folderPath))
             Directory.CreateDirectory(folderPath);
 
-        // -----------------------
-        // Load game FIRST (before any save logic runs)
-        // -----------------------
+        // Load game before saving starts
         LoadGame();
     }
 
     private void Update()
     {
-        // Auto save disabled? Stop here
         if (!autoSaveEnabled) return;
 
         saveTimer += Time.deltaTime;
@@ -68,6 +65,12 @@ public class SaveLoadData : MonoBehaviour
         {
             Debug.LogError("SaveLoadData: No GameData assigned!");
             return;
+        }
+
+        // Save player's current position
+        if (dataObject.player != null)
+        {
+            dataObject.playerPosition = dataObject.player.position;
         }
 
         // Update last saved time
@@ -107,9 +110,36 @@ public class SaveLoadData : MonoBehaviour
         // Overwrite current data object
         JsonUtility.FromJsonOverwrite(json, dataObject);
 
-        // Move player to saved position (if exists)
+        // Load player position onto the referenced player (if available)
         if (dataObject.player != null)
+        {
             dataObject.player.position = dataObject.playerPosition;
+        }
+
+        // ALSO: find any GameObject(s) tagged "Player" and set their transform position
+        // to match the loaded GameData.playerPosition so scene objects named/tagged Player are synchronized.
+        try
+        {
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+            if (players != null && players.Length > 0)
+            {
+                foreach (GameObject go in players)
+                {
+                    if (go != null)
+                        go.transform.position = dataObject.playerPosition;
+                }
+                Debug.Log($"Set {players.Length} GameObject(s) with tag 'Player' to saved position: {dataObject.playerPosition}");
+            }
+            else
+            {
+                Debug.Log("No GameObjects with tag 'Player' found to set position.");
+            }
+        }
+        catch (UnityException ue)
+        {
+            // GameObject.FindGameObjectsWithTag throws if the tag does not exist in Tag Manager.
+            Debug.LogWarning("LoadGame: Tag 'Player' not defined in Tag Manager, skipping tag-based placement. " + ue.Message);
+        }
 
         Debug.Log("Game Loaded from: " + filePath);
     }

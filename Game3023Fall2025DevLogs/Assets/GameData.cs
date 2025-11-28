@@ -20,6 +20,8 @@ public class GameData : MonoBehaviour
         }
     }
 
+
+
     [Header("=== Save Info ===")]
     public long lastUpdated = 0;
     public int deathCount = 0;

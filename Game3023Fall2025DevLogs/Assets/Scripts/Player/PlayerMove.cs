@@ -1,3 +1,5 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,11 +23,23 @@ public class PlayerMove : MonoBehaviour
     [Tooltip("Drag the scene here (by name). Make sure it’s added in Build Settings!")]
     public string encounterSceneName;
 
+    [Header("Position Logging")]
+    [Tooltip("Enable periodic logging of the player's X, Y and Z position.")]
+    public bool enablePositionLogging = true;
+    [Tooltip("Time in seconds between position log entries.")]
+    public float logInterval = 3f;
+    private float logTimer = 0f;
+
+    [Header("Position Receiver")]
+    [Tooltip("Optional: drag an empty GameObject here to receive position updates. It will receive a SendMessage call to 'OnReceivePlayerPosition' with a Vector3 argument.")]
+    public GameObject positionReceiver;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        logTimer = logInterval;
     }
 
     void Update()
@@ -45,6 +59,39 @@ public class PlayerMove : MonoBehaviour
             encounterCooldown -= Time.deltaTime;
 
         EnemyEncounter(isMoving);
+
+        // Position logging (logs X, Y and Z components) every logInterval seconds
+        if (enablePositionLogging && logInterval > 0f)
+        {
+            logTimer -= Time.deltaTime;
+            if (logTimer <= 0f)
+            {
+                Vector3 pos = transform.position;
+                Debug.Log($"Player position - x: {pos.x:F3}, y: {pos.y:F3}, z: {pos.z:F3}");
+                // If a receiver GameObject is assigned, send the Vector3 via SendMessage.
+                if (positionReceiver != null)
+                {
+                    // The receiver should implement a method like:
+                    // void OnReceivePlayerPosition(Vector3 pos) { ... }
+                    positionReceiver.SendMessage("OnReceivePlayerPosition", pos, SendMessageOptions.DontRequireReceiver);
+                }
+
+                // Update GameData.playerPosition so the saved game data matches the logged XYZ
+                if (GameData.Instance != null)
+                {
+                    GameData.Instance.playerPosition = pos;
+                }
+                else
+                {
+                    // Fallback: try to find a GameData in the scene and update it
+                    GameData gd = FindObjectOfType<GameData>();
+                    if (gd != null)
+                        gd.playerPosition = pos;
+                }
+
+                logTimer = logInterval;
+            }
+        }
     }
 
     void FixedUpdate()
