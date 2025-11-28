@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2508637529971949795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7028246027784468203}
+  - component: {fileID: 6335774346036269358}
+  m_Layer: 0
+  m_Name: Game data
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7028246027784468203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2508637529971949795}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1697.9689, y: 1134.5548, z: 8.96675}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6335774346036269358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2508637529971949795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89cbdf7a2dcd8ab40a929072c7493273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastUpdated: 0
+  deathCount: 0
+  HP: 100
+  XP: 0
+  Level: 1
+  PlayerName: Player
+  Gold: 0
+  Teleporter: 0
+  BEEFUP: 0
+  Star: 0
+  DisguiseBag: 0
+  Shovel: 0
+  ToppatDiamond: 0
+  NRGDrink: 0
+  Chese: 0
+  RubiksCube: 0
+  GatlingGun: 0
+  Disguise: 0
+  StickyHand: 0
+  BananaPeel: 0
+  LaserCutter: 0
+  WormholeRifle: 0
+  PoisonDartGun: 0
+  TheForce: 0
+  ShrinkRay: 0
+  Cake: 0
+  Lost: 0
+  SHARDS: 0
+  Wins: 0
+  FireBlast: 0
+  IceBeam: 0
+  ThunderStrike: 0
+  WaterPulse: 0
+  RockSmash: 0
+  DarkWave: 0
+  SolarBeam: 0
+  PsychicBurst: 0
+  Unlocked_FireBlast: 0
+  Unlocked_IceBeam: 0
+  Unlocked_ThunderStrike: 0
+  Unlocked_WaterPulse: 0
+  Unlocked_RockSmash: 0
+  Unlocked_DarkWave: 0
+  Unlocked_SolarBeam: 0
+  Unlocked_PsychicBurst: 0
+  playerPosition: {x: 0, y: 0, z: 0}
+  coinsCollected:
+    keys: []
+    values: 
+  playerAttributesData:
+    vitality: 1
+    strength: 1
+    intellect: 1
+    endurance: 1
+  player: {fileID: 0}
