@@ -1,10 +1,10 @@
 {
-    "lastUpdated": 1764372572,
+    "lastUpdated": 1764375603,
     "deathCount": 0,
-    "HP": 100,
+    "HP": 0,
     "XP": 0,
-    "Level": 1,
-    "PlayerName": "Player",
+    "Level": 0,
+    "PlayerName": "",
     "Gold": 0,
     "Teleporter": 0,
     "BEEFUP": 0,
@@ -45,8 +45,8 @@
     "Unlocked_SolarBeam": false,
     "Unlocked_PsychicBurst": false,
     "playerPosition": {
-        "x": -25.0,
-        "y": -31.0,
+        "x": -26.899999618530275,
+        "y": -35.29999923706055,
         "z": 0.0
     },
     "coinsCollected": {
