@@ -305,6 +305,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7208928583434779963, guid: 215d23d6e0b61474d862f477f2a94dc0, type: 3}
+      propertyPath: logInterval
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208928583434779963, guid: 215d23d6e0b61474d862f477f2a94dc0, type: 3}
       propertyPath: positionReceiver
       value: 
       objectReference: {fileID: 2071535636}
@@ -461,10 +465,8 @@ GameObject:
   - component: {fileID: 518759679}
   - component: {fileID: 518759678}
   - component: {fileID: 518759677}
-  - component: {fileID: 518759680}
   - component: {fileID: 518759681}
   - component: {fileID: 518759682}
-  - component: {fileID: 518759683}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -522,18 +524,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &518759680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 518759676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68db1c071180db647ba71e63c5bf1cbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &518759681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,22 +548,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d16836f9709e04bb260a0aecf375c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &518759683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 518759676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b403863c86754584cb0a2348016105dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  storagePrefab: {fileID: 2071535636}
-  storageObjectName: PlayerPositionStorage
-  storageInstance: {fileID: 0}
-  store: {fileID: 0}
 --- !u!1 &547016402
 GameObject:
   m_ObjectHideFlags: 0
@@ -293713,7 +293687,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 943548133}
         m_TargetAssemblyTypeName: SaveLoadData, Assembly-CSharp
-        m_MethodName: ManualSave
+        m_MethodName: SaveGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -293846,7 +293820,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 943548133}
         m_TargetAssemblyTypeName: SaveLoadData, Assembly-CSharp
-        m_MethodName: ManualLoad
+        m_MethodName: LoadGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

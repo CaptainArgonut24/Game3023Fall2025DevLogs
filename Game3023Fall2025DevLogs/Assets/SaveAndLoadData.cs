@@ -1,6 +1,6 @@
 using System.IO;
-using UnityEngine;
 using System.Text;
+using UnityEngine;
 
 public class SaveLoadData : MonoBehaviour
 {
@@ -18,8 +18,23 @@ public class SaveLoadData : MonoBehaviour
     private string folderPath;
     private string filePath;
 
+    // Singleton instance to keep a single persistent SaveLoadData across scenes
+    public static SaveLoadData Instance { get; private set; }
+
     private void Awake()
     {
+        // Ensure a single persistent instance
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         folderPath = Path.Combine(Application.dataPath, "SAVEDGAMES");
         filePath = Path.Combine(folderPath, "AUTOSAVE.json");
 
