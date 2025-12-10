@@ -10,6 +10,9 @@ public class MAINMENUUI : MonoBehaviour
     public GameObject mainUI;
     public GameObject savesUI;
     public GameObject SaveSlots;
+    public Animator animator;
+    // configurable delay before loading the scene
+    public float delay = 3f;
 
     [Header("Scene To Load")]
     public string sceneToLoad;   // Scene name assigned in Inspector
@@ -50,8 +53,10 @@ public class MAINMENUUI : MonoBehaviour
     }
 
     // Public entry from UI button
-    public void StartNewGame()
+    public IEnumerable<WaitForSeconds> StartNewGame()
     {
+        animator.SetTrigger("FadeOUT");
+        yield return new WaitForSeconds(delay);
         StartCoroutine(LoadSceneAfterDelay());
     }
 

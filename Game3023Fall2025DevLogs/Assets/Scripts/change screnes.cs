@@ -6,9 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class ScreenManager : MonoBehaviour
 {
+    public Animator animator;
+    // configurable delay before loading the scene
+    public float delay = 3f;
+
     public void MOVE(int ID)
     {
-        SceneManager.LoadScene(ID);
+        StartCoroutine(MoveCoroutine(ID));
     }
 
+    private IEnumerator MoveCoroutine(int ID)
+    {
+        animator.SetTrigger("FadeOUT");
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(ID);
+    }
 }

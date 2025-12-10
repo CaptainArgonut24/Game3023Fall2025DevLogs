@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - bASE
+  - Dirt
+  - Grass
   layers:
   - Default
   - TransparentFX
@@ -17,8 +19,8 @@ TagManager:
   - COLidon
   - ENCO
   - Player
-  - 
-  - 
+  - Grass
+  - Dirt
   - 
   - 
   - 
