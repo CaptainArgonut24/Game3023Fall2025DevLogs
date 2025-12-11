@@ -7,6 +7,10 @@ TagManager:
   - bASE
   - Dirt
   - Grass
+  - Water
+  - rail
+  - Colion
+  - Wood
   layers:
   - Default
   - TransparentFX
