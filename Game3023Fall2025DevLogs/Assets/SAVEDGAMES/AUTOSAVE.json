@@ -1,5 +1,5 @@
 {
-    "lastUpdated": 1765414173,
+    "lastUpdated": 1765477626,
     "deathCount": 0,
     "HP": 0,
     "XP": 0,
@@ -45,8 +45,8 @@
     "Unlocked_SolarBeam": false,
     "Unlocked_PsychicBurst": false,
     "playerPosition": {
-        "x": -26.899999618530275,
-        "y": -35.29999923706055,
+        "x": -440.0522155761719,
+        "y": -36.227561950683597,
         "z": 0.0
     },
     "coinsCollected": {
