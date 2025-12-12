@@ -56,6 +56,10 @@ public class GameData : MonoBehaviour
 
     public int Lost = 0;
     public int SHARDS = 0;
+    public int RSHARDS = 0;
+    public int GSHARDS = 0;
+    public int BSHARDS = 0;
+    public int BOSSSHARDS = 0;
     public int Wins = 0;
 
     [Header("=== Special Abilities (Equipped) ===")]

@@ -10,6 +10,8 @@ public class MAINMENUUI : MonoBehaviour
     public GameObject mainUI;
     public GameObject savesUI;
     public GameObject SaveSlots;
+    public GameObject CreditsUI;
+    public GameObject HTPUI;
     public Animator animator;
     // configurable delay before loading the scene
     public float delay = 3f;
@@ -44,12 +46,34 @@ public class MAINMENUUI : MonoBehaviour
         savesUI.SetActive(false);
         mainUI.SetActive(true);
         SaveSlots.SetActive(false);
+        CreditsUI.SetActive(false);
+        HTPUI.SetActive(false);
     }
     public void Saveslots()
     {
         savesUI.SetActive(false);
         mainUI.SetActive(false);
         SaveSlots.SetActive(true);
+        CreditsUI.SetActive(false);
+        HTPUI.SetActive(false);
+    }
+
+    public void Credits()
+    {
+        savesUI.SetActive(false);
+        mainUI.SetActive(false);
+        SaveSlots.SetActive(false);
+        CreditsUI.SetActive(true);
+        HTPUI.SetActive(false);
+    }
+
+    public void HTP()
+    {
+        savesUI.SetActive(false);
+        mainUI.SetActive(false);
+        SaveSlots.SetActive(false);
+        CreditsUI.SetActive(false);
+        HTPUI.SetActive(true);
     }
 
     // Public entry from UI button
