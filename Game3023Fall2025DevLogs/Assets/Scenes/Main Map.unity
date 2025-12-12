@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.16037738, g: 0.13692597, b: 0.13692597, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -610,6 +610,7 @@ GameObject:
   - component: {fileID: 143553784}
   - component: {fileID: 143553783}
   - component: {fileID: 143553785}
+  - component: {fileID: 143553786}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -740,6 +741,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d16836f9709e04bb260a0aecf375c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &143553786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143553782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19506b94641387d4885d0c8bb6a19052, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  INV: {fileID: 83740570}
+  SHOP: {fileID: 1839610712}
+  ACH: {fileID: 159676472}
+  SETT: {fileID: 591500818}
 --- !u!1001 &148922638
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -190363,9 +190380,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MAINMENUUI, Assembly-CSharp
-        m_MethodName: QuitGame
+      - m_Target: {fileID: 143553786}
+        m_TargetAssemblyTypeName: GAMEPanales, Assembly-CSharp
+        m_MethodName: SHOPVOC
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -581073,9 +581090,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MAINMENUUI, Assembly-CSharp
-        m_MethodName: QuitGame
+      - m_Target: {fileID: 143553786}
+        m_TargetAssemblyTypeName: GAMEPanales, Assembly-CSharp
+        m_MethodName: SETTOC
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -581206,9 +581223,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MAINMENUUI, Assembly-CSharp
-        m_MethodName: QuitGame
+      - m_Target: {fileID: 143553786}
+        m_TargetAssemblyTypeName: GAMEPanales, Assembly-CSharp
+        m_MethodName: INVOC
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -581339,9 +581356,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MAINMENUUI, Assembly-CSharp
-        m_MethodName: QuitGame
+      - m_Target: {fileID: 143553786}
+        m_TargetAssemblyTypeName: GAMEPanales, Assembly-CSharp
+        m_MethodName: ACHVOC
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
