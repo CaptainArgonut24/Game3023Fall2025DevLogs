@@ -38,6 +38,8 @@ public class MAINMENUUI : MonoBehaviour
         mainUI.SetActive(false);
         savesUI.SetActive(true);
         SaveSlots.SetActive(false);
+        CreditsUI.SetActive(false);
+        HTPUI.SetActive(false);
     }
 
     // Back to main menu

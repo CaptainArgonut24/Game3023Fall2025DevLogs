@@ -82,6 +82,19 @@ public class GameData : MonoBehaviour
     public bool Unlocked_SolarBeam;
     public bool Unlocked_PsychicBurst;
 
+    [Header("=== Achievements (Unlocked) ===")]
+
+    public bool Achievement_1;
+    public bool Achievement_2;
+    public bool Achievement_3;
+    public bool Achievement_4;
+    public bool Achievement_5;
+    public bool Achievement_6;
+    public bool Achievement_7;
+    public bool Achievement_8;
+    public bool Achievement_9;
+    public bool Achievement_10;
+
     [Header("=== Player World Data ===")]
     public Vector3 playerPosition;
 
@@ -94,4 +107,16 @@ public class GameData : MonoBehaviour
 
     [Header("=== Player Reference ===")]
     public Transform player;   // so save system can read the player's position
+
+    public Dictionary<string, int> playerInventory = new Dictionary<string, int>();
+
+    public void AddItem(string item, int amount)
+    {
+        if (!playerInventory.ContainsKey(item))
+            playerInventory[item] = 0;
+
+        playerInventory[item] += amount;
+
+        Debug.Log("Added: " + item + " x" + amount);
+    }
 }
