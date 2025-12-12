@@ -68,6 +68,14 @@ public class SaveFileFormat
     public bool Unlocked_SolarBeam;
     public bool Unlocked_PsychicBurst;
 
+    public bool Unlocked_Achievement_1;
+    public bool Unlocked_Achievement_2;
+    public bool Unlocked_Achievement_3;
+    public bool Unlocked_Achievement_4;
+    public bool Unlocked_Achievement_5;
+    public bool Unlocked_Achievement_6;
+    public bool Unlocked_Achievement_7;
+
     // Player World Data
     public Vector3 playerPosition;
     public SerializableDictionary<string, bool> coinsCollected;
@@ -109,7 +117,7 @@ public class SaveFileFormat
         WormholeRifle = src.WormholeRifle;
         PoisonDartGun = src.PoisonDartGun;
         TheForce = src.TheForce;
-        ShrinkRay = src.ShrinkRay;
+        
         Cake = src.Cake;
         Lost = src.Lost;
         SHARDS = src.SHARDS;
@@ -132,6 +140,14 @@ public class SaveFileFormat
         Unlocked_DarkWave = src.Unlocked_DarkWave;
         Unlocked_SolarBeam = src.Unlocked_SolarBeam;
         Unlocked_PsychicBurst = src.Unlocked_PsychicBurst;
+
+        Unlocked_Achievement_1 = src.Unlocked_Achievement_1;
+        Unlocked_Achievement_2 = src.Unlocked_Achievement_2;
+        Unlocked_Achievement_3 = src.Unlocked_Achievement_3;
+        Unlocked_Achievement_4 = src.Unlocked_Achievement_4;
+        Unlocked_Achievement_5 = src.Unlocked_Achievement_5;
+        Unlocked_Achievement_6 = src.Unlocked_Achievement_6;
+        Unlocked_Achievement_7 = src.Unlocked_Achievement_7;
 
         playerPosition = src.playerPosition;
 
@@ -195,7 +211,7 @@ public class SaveFileFormat
         dst.WormholeRifle = WormholeRifle;
         dst.PoisonDartGun = PoisonDartGun;
         dst.TheForce = TheForce;
-        dst.ShrinkRay = ShrinkRay;
+        
         dst.Cake = Cake;
         dst.Lost = Lost;
         dst.SHARDS = SHARDS;
@@ -218,6 +234,14 @@ public class SaveFileFormat
         dst.Unlocked_DarkWave = Unlocked_DarkWave;
         dst.Unlocked_SolarBeam = Unlocked_SolarBeam;
         dst.Unlocked_PsychicBurst = Unlocked_PsychicBurst;
+
+        dst.Unlocked_Achievement_1 = Unlocked_Achievement_1;
+        dst.Unlocked_Achievement_2 = Unlocked_Achievement_2;
+        dst.Unlocked_Achievement_3 = Unlocked_Achievement_3;
+        dst.Unlocked_Achievement_4 = Unlocked_Achievement_4;
+        dst.Unlocked_Achievement_5 = Unlocked_Achievement_5;
+        dst.Unlocked_Achievement_6 = Unlocked_Achievement_6;
+        dst.Unlocked_Achievement_7 = Unlocked_Achievement_7;
 
         dst.playerPosition = playerPosition;
 

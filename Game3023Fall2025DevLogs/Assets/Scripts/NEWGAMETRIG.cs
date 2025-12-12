@@ -60,7 +60,7 @@ public class NEWGAMETRIG : MonoBehaviour
         gd.WormholeRifle = 0;
         gd.PoisonDartGun = 0;
         gd.TheForce = 0;
-        gd.ShrinkRay = 0;
+        
         gd.Cake = 0;
 
         gd.Lost = 0;
@@ -86,6 +86,15 @@ public class NEWGAMETRIG : MonoBehaviour
         gd.Unlocked_DarkWave = false;
         gd.Unlocked_SolarBeam = false;
         gd.Unlocked_PsychicBurst = false;
+
+
+        gd.Unlocked_Achievement_1 = false;
+        gd.Unlocked_Achievement_2 = false;
+        gd.Unlocked_Achievement_3 = false;
+        gd.Unlocked_Achievement_4 = false;
+        gd.Unlocked_Achievement_5 = false;
+        gd.Unlocked_Achievement_6 = false;
+        gd.Unlocked_Achievement_7 = false;
 
         // === Player World Data ===
         gd.playerPosition = DefaultStartPosition;

@@ -51,7 +51,6 @@ public class GameData : MonoBehaviour
     public int WormholeRifle = 0;
     public int PoisonDartGun = 0;
     public int TheForce = 0;
-    public int ShrinkRay = 0;
     public int Cake = 0;
 
     public int Lost = 0;
@@ -84,16 +83,14 @@ public class GameData : MonoBehaviour
 
     [Header("=== Achievements (Unlocked) ===")]
 
-    public bool Achievement_1;
-    public bool Achievement_2;
-    public bool Achievement_3;
-    public bool Achievement_4;
-    public bool Achievement_5;
-    public bool Achievement_6;
-    public bool Achievement_7;
-    public bool Achievement_8;
-    public bool Achievement_9;
-    public bool Achievement_10;
+    public bool Unlocked_Achievement_1;
+    public bool Unlocked_Achievement_2;
+    public bool Unlocked_Achievement_3;
+    public bool Unlocked_Achievement_4;
+    public bool Unlocked_Achievement_5;
+    public bool Unlocked_Achievement_6;
+    public bool Unlocked_Achievement_7;
+
 
     [Header("=== Player World Data ===")]
     public Vector3 playerPosition;
@@ -109,6 +106,7 @@ public class GameData : MonoBehaviour
     public Transform player;   // so save system can read the player's position
 
     public Dictionary<string, int> playerInventory = new Dictionary<string, int>();
+    
 
     public void AddItem(string item, int amount)
     {
