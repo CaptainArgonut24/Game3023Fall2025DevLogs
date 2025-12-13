@@ -36,10 +36,7 @@ public class MysteryBox : MonoBehaviour
     public List<MysteryReward> rewards = new List<MysteryReward>();
 
     [Header("=== Timing ===")]
-    [Tooltip("Delay before the reward is granted")]
     public float rewardDelay = 1.5f;
-
-    [Tooltip("How long the box stays disabled after use")]
     public float cooldownTime = 8f;
 
     [Header("=== Audio ===")]
@@ -60,6 +57,41 @@ public class MysteryBox : MonoBehaviour
         col.isTrigger = true;
     }
 
+    // ?? Auto-fill defaults when component is added
+    private void Reset()
+    {
+        rewards = new List<MysteryReward>()
+        {
+            new MysteryReward { rewardName = "Teleporter", chance = 0.05f },
+            new MysteryReward { rewardName = "BEEFUP", chance = 0.06f },
+            new MysteryReward { rewardName = "Star", chance = 0.08f },
+            new MysteryReward { rewardName = "DisguiseBag", chance = 0.07f },
+            new MysteryReward { rewardName = "Shovel", chance = 0.10f },
+            new MysteryReward { rewardName = "ToppatDiamond", chance = 0.03f },
+            new MysteryReward { rewardName = "NRGDrink", chance = 0.12f },
+            new MysteryReward { rewardName = "Cheese", chance = 0.14f },
+            new MysteryReward { rewardName = "RubiksCube", chance = 0.09f },
+            new MysteryReward { rewardName = "GatlingGun", chance = 0.02f },
+            new MysteryReward { rewardName = "Disguise", chance = 0.08f },
+            new MysteryReward { rewardName = "StickyHand", chance = 0.11f },
+            new MysteryReward { rewardName = "BananaPeel", chance = 0.15f },
+            new MysteryReward { rewardName = "LaserCutter", chance = 0.04f },
+            new MysteryReward { rewardName = "WormholeRifle", chance = 0.015f },
+            new MysteryReward { rewardName = "PoisonDartGun", chance = 0.035f },
+            new MysteryReward { rewardName = "TheForce", chance = 0.01f },
+            new MysteryReward { rewardName = "Cake", chance = 0.13f },
+
+            new MysteryReward
+            {
+                rewardName = "Gold",
+                rewardType = RewardType.Gold,
+                minAmount = 25,
+                maxAmount = 100,
+                chance = 0.25f
+            }
+        };
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isOnCooldown) return;
@@ -77,29 +109,19 @@ public class MysteryBox : MonoBehaviour
 
     IEnumerator MysterySequence(GameData data)
     {
-        // Disable interaction immediately
         isOnCooldown = true;
         col.enabled = false;
 
-        // Play sounds
-        if (openSFX)
-            audioSource.PlayOneShot(openSFX);
+        if (openSFX) audioSource.PlayOneShot(openSFX);
+        if (voiceLine) audioSource.PlayOneShot(voiceLine);
 
-        if (voiceLine)
-            audioSource.PlayOneShot(voiceLine);
-
-        // Wait before giving reward
         yield return new WaitForSeconds(rewardDelay);
 
         GrantReward(data);
 
-        // Hide box while on cooldown
         spriteRenderer.enabled = false;
-
-        // Cooldown
         yield return new WaitForSeconds(cooldownTime);
 
-        // Re-enable
         spriteRenderer.enabled = true;
         col.enabled = true;
         isOnCooldown = false;

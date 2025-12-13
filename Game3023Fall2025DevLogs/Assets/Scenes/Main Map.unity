@@ -1099,6 +1099,7 @@ GameObject:
   - component: {fileID: 83740571}
   - component: {fileID: 83740573}
   - component: {fileID: 83740572}
+  - component: {fileID: 83740574}
   m_Layer: 5
   m_Name: InventoryP
   m_TagString: Untagged
@@ -1183,6 +1184,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83740570}
   m_CullTransparentMesh: 1
+--- !u!114 &83740574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83740570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd94bd4dad3a619478bc3f93d9f34a8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleporterText: {fileID: 524551374}
+  beefUpText: {fileID: 2029873446}
+  starText: {fileID: 1664667214}
+  disguiseBagText: {fileID: 1419355558}
+  shovelText: {fileID: 46816151}
+  toppatDiamondText: {fileID: 729190180}
+  nrgDrinkText: {fileID: 1188556531}
+  cheseText: {fileID: 1975705323}
+  rubiksCubeText: {fileID: 324639004}
+  gatlingGunText: {fileID: 982998869}
+  disguiseText: {fileID: 975955821}
+  stickyHandText: {fileID: 1632654385}
+  bananaPeelText: {fileID: 863911239}
+  laserCutterText: {fileID: 1267281002}
+  wormholeRifleText: {fileID: 2073264754}
+  poisonDartGunText: {fileID: 1210070363}
+  theForceText: {fileID: 429467027}
+  cakeText: {fileID: 1982026372}
+  goldText: {fileID: 396239306}
+  CheseText: {fileID: 1966041818}
 --- !u!1 &90991958
 GameObject:
   m_ObjectHideFlags: 0
@@ -1853,6 +1886,7 @@ GameObject:
   - component: {fileID: 159676473}
   - component: {fileID: 159676475}
   - component: {fileID: 159676474}
+  - component: {fileID: 159676476}
   m_Layer: 5
   m_Name: AchievementsP
   m_TagString: Untagged
@@ -1924,6 +1958,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 159676472}
   m_CullTransparentMesh: 1
+--- !u!114 &159676476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159676472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e59ebab7f5c61d498f36f4fdce06fcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Achievement_1: {fileID: 1498481532}
+  Achievement_2: {fileID: 1274243396}
+  Achievement_3: {fileID: 687576788}
+  Achievement_4: {fileID: 1041930228}
+  Achievement_5: {fileID: 1978461063}
+  Achievement_6: {fileID: 1558700448}
+  Achievement_7: {fileID: 1308324228}
 --- !u!1 &176509088
 GameObject:
   m_ObjectHideFlags: 0
@@ -2850,6 +2903,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 314797822}
+  - component: {fileID: 314797823}
   m_Layer: 5
   m_Name: User Stats
   m_TagString: Untagged
@@ -2882,6 +2936,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &314797823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314797821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6524df4e75df05f469783f6f06c693ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 1735797928}
+  levelText: {fileID: 64279814}
+  xpText: {fileID: 108084246}
+  goldText: {fileID: 1991395042}
+  hpText: {fileID: 1804349669}
 --- !u!1 &318567096
 GameObject:
   m_ObjectHideFlags: 0
@@ -210360,7 +210431,7 @@ GameObject:
   - component: {fileID: 524551375}
   - component: {fileID: 524551374}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -537511,7 +537582,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 839558849}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1861343839}
+        m_TargetAssemblyTypeName: ShopUI, Assembly-CSharp
+        m_MethodName: BuyToppatDiamond
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 839558848}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &839558849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -603399,7 +603482,7 @@ GameObject:
   - component: {fileID: 975955822}
   - component: {fileID: 975955821}
   m_Layer: 5
-  m_Name: Text (TMP) (10)
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -605062,7 +605145,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1117073092}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1861343839}
+        m_TargetAssemblyTypeName: ShopUI, Assembly-CSharp
+        m_MethodName: AddGold100
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1117073092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605076,7 +605171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.85797274, b: 0, a: 1}
+  m_Color: {r: 0.28960717, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -605183,7 +605278,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1117967135}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1861343839}
+        m_TargetAssemblyTypeName: ShopUI, Assembly-CSharp
+        m_MethodName: BuyBEEFUP
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1117967134}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1117967135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605428,7 +605535,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1138985531}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1861343839}
+        m_TargetAssemblyTypeName: ShopUI, Assembly-CSharp
+        m_MethodName: BuyTeleporter
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1138985530}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1138985531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605616,7 +605735,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1167837891}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1861343839}
+        m_TargetAssemblyTypeName: ShopUI, Assembly-CSharp
+        m_MethodName: BuyLaserCutter
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1167837890}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1167837891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605829,7 +605960,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1188410512}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1861343840}
+        m_TargetAssemblyTypeName: MuteMusic, Assembly-CSharp
+        m_MethodName: ToggleSfx
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1188410512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608150,7 +608293,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1404727642}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1861343839}
+        m_TargetAssemblyTypeName: ShopUI, Assembly-CSharp
+        m_MethodName: BuyRubiksCube
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1404727641}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1404727642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608201,7 +608356,7 @@ GameObject:
   - component: {fileID: 1419355559}
   - component: {fileID: 1419355558}
   m_Layer: 5
-  m_Name: Text (TMP) (3)
+  m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -609090,7 +609245,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1499103514}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1861343840}
+        m_TargetAssemblyTypeName: MuteMusic, Assembly-CSharp
+        m_MethodName: ToggleMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1499103514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -610017,7 +610184,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1636668442}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1861343839}
+        m_TargetAssemblyTypeName: ShopUI, Assembly-CSharp
+        m_MethodName: BuyChese
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1636668441}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1636668442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -610532,7 +610711,7 @@ GameObject:
   - component: {fileID: 1664667215}
   - component: {fileID: 1664667214}
   m_Layer: 5
-  m_Name: Text (TMP) (2)
+  m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -610736,7 +610915,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1694025492}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1861343839}
+        m_TargetAssemblyTypeName: ShopUI, Assembly-CSharp
+        m_MethodName: BuyNRGDrink
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1694025491}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1694025492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611299,7 +611490,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1741712043}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1861343839}
+        m_TargetAssemblyTypeName: ShopUI, Assembly-CSharp
+        m_MethodName: BuyDisguise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1741712043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611678,7 +611881,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1771305517}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1861343839}
+        m_TargetAssemblyTypeName: ShopUI, Assembly-CSharp
+        m_MethodName: BuyGatlingGun
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1771305516}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1771305517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612123,7 +612338,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1835515774}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1861343839}
+        m_TargetAssemblyTypeName: ShopUI, Assembly-CSharp
+        m_MethodName: BuyStickyHand
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1835515773}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1835515774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612513,6 +612740,8 @@ GameObject:
   - component: {fileID: 1861343834}
   - component: {fileID: 1861343837}
   - component: {fileID: 1861343838}
+  - component: {fileID: 1861343839}
+  - component: {fileID: 1861343840}
   m_Layer: 0
   m_Name: CORE
   m_TagString: Untagged
@@ -612628,6 +612857,48 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0cf4b48834280bd42b95053375c8d653, type: 3}
   - {fileID: 8300000, guid: d7a18973dbefeae40b7f5c150096a7b6, type: 3}
   audioSource: {fileID: 518759683}
+--- !u!114 &1861343839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861343833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4ffc671691499b49af16a5c59103a84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemCost: 100
+  errorFlashTime: 3
+  canBuyColor: {r: 0, g: 1, b: 0, a: 1}
+  cantBuyColor: {r: 1, g: 0, b: 0, a: 1}
+  audioSource: {fileID: 2113855120}
+  errorSound: {fileID: 8300000, guid: c433d0ad372252f408f5a6acd7f0bb17, type: 3}
+  successSound: {fileID: 8300000, guid: be089bd4e9346ca41b285339998cec66, type: 3}
+--- !u!114 &1861343840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861343833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ea3da076c5ac24fbb30a0945bd476a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSources:
+  - {fileID: 143553783}
+  musicButton: {fileID: 1499103513}
+  musicOnColor: {r: 0, g: 1, b: 0, a: 1}
+  musicOffColor: {r: 1, g: 0, b: 0, a: 1}
+  sfxSources:
+  - {fileID: 1789963886}
+  - {fileID: 518759683}
+  sfxButton: {fileID: 1188410511}
+  sfxOnColor: {r: 0, g: 1, b: 0, a: 1}
+  sfxOffColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1864533715
 GameObject:
   m_ObjectHideFlags: 0
@@ -612710,7 +612981,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1864533718}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1861343839}
+        m_TargetAssemblyTypeName: ShopUI, Assembly-CSharp
+        m_MethodName: BuyShovel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1864533717}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1864533718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614057,7 +614340,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1968440644}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1861343839}
+        m_TargetAssemblyTypeName: ShopUI, Assembly-CSharp
+        m_MethodName: BuyStar
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1968440643}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1968440644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -615349,7 +615644,7 @@ GameObject:
   - component: {fileID: 2029873447}
   - component: {fileID: 2029873446}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -616631,6 +616926,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2113855119}
+  - component: {fileID: 2113855120}
   m_Layer: 0
   m_Name: GameObject (1)
   m_TagString: Untagged
@@ -616653,6 +616949,102 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &2113855120
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113855118}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &2114753668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -616938,7 +617330,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2321986567396777665, guid: 9bb21c48bab159740a4be489712d414a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5094345859601424821, guid: 9bb21c48bab159740a4be489712d414a, type: 3}
       propertyPath: m_IsActive
@@ -617093,6 +617485,10 @@ PrefabInstance:
     - target: {fileID: 5219130050961106542, guid: e95fea2b5e7c4ca4e882177d80a96a1a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6566298303507034021, guid: e95fea2b5e7c4ca4e882177d80a96a1a, type: 3}
+      propertyPath: rewards.Array.data[0].rewardType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

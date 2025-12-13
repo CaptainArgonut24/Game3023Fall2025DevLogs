@@ -1,7 +1,8 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -36,6 +37,9 @@ public class PlayerMove : MonoBehaviour
     [Tooltip("Optional: drag an empty GameObject here to receive position updates. It will receive a SendMessage call to 'OnReceivePlayerPosition' with a Vector3 argument.")]
     public GameObject positionReceiver;
 
+    private GameData data;
+
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -51,6 +55,13 @@ public class PlayerMove : MonoBehaviour
 
         if (rb == null)
             Debug.LogWarning("PlayerMove: Rigidbody2D component not found on GameObject.");
+
+        data = GameData.Instance;
+
+        if (data == null)
+        {
+            Debug.LogError("GameData Instance not found!");
+        }
     }
 
     void Update()
@@ -137,8 +148,28 @@ public class PlayerMove : MonoBehaviour
         {
             if (GameData.Instance != null)
             {
-                // Use GameData's API to add points (safer than calling a non-existent method)
-                GameData.Instance.AddPoints(25);
+                data.Gold += 100;
+                data.Level += 1;
+                data.HP += 100;
+                data.XP += 100;
+                data.Teleporter += 100;
+                data.BEEFUP += 100;
+                data.Star += 100;
+                data.DisguiseBag += 100;
+                data.Shovel += 100;
+                data.ToppatDiamond += 100;
+                data.NRGDrink += 100;
+                data.Chese += 100;
+                data.RubiksCube += 100;
+                data.GatlingGun += 100;
+                data.Disguise += 100;
+                data.StickyHand += 100;
+                data.BananaPeel += 100;
+                data.LaserCutter += 100;
+                data.WormholeRifle += 100;
+                data.PoisonDartGun += 100;
+                data.TheForce += 100;
+                data.Cake += 100;
             }
             else
             {
