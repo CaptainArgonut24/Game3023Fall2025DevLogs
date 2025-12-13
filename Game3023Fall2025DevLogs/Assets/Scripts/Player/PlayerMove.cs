@@ -2,8 +2,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -12,6 +10,10 @@ public class PlayerMove : MonoBehaviour
     private Vector2 movement;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+
+    public AudioSource walkingSound;  // Reference to the walking sound
+    public AudioClip walkingClip;     // Walking sound clip
+    private bool isWalkingSoundPlaying = false;  // Flag to check if sound is already playing
 
     // Trigger the encounter
     public LayerMask LayerM;
@@ -39,7 +41,16 @@ public class PlayerMove : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        logTimer = logInterval;
+        logTimer = Mathf.Max(0.01f, logInterval);
+
+        // Ensure the AudioSource component is set up
+        if (walkingSound == null)
+        {
+            walkingSound = GetComponent<AudioSource>();
+        }
+
+        if (rb == null)
+            Debug.LogWarning("PlayerMove: Rigidbody2D component not found on GameObject.");
     }
 
     void Update()
@@ -48,14 +59,19 @@ public class PlayerMove : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
 
         bool isMoving = movement.x != 0 || movement.y != 0;
-        animator.SetBool("isMoving", isMoving);
 
-        if (movement.x > 0)
-            spriteRenderer.flipX = false;
-        else if (movement.x < 0)
-            spriteRenderer.flipX = true;
+        if (animator != null)
+            animator.SetBool("isMoving", isMoving);
 
-        if (encounterCooldown > 0)
+        if (spriteRenderer != null)
+        {
+            if (movement.x > 0)
+                spriteRenderer.flipX = false;
+            else if (movement.x < 0)
+                spriteRenderer.flipX = true;
+        }
+
+        if (encounterCooldown > 0f)
             encounterCooldown -= Time.deltaTime;
 
         EnemyEncounter(isMoving);
@@ -68,11 +84,9 @@ public class PlayerMove : MonoBehaviour
             {
                 Vector3 pos = transform.position;
                 Debug.Log($"Player position - x: {pos.x:F3}, y: {pos.y:F3}, z: {pos.z:F3}");
-                // If a receiver GameObject is assigned, send the Vector3 via SendMessage.
+
                 if (positionReceiver != null)
                 {
-                    // The receiver should implement a method like:
-                    // void OnReceivePlayerPosition(Vector3 pos) { ... }
                     positionReceiver.SendMessage("OnReceivePlayerPosition", pos, SendMessageOptions.DontRequireReceiver);
                 }
 
@@ -83,7 +97,6 @@ public class PlayerMove : MonoBehaviour
                 }
                 else
                 {
-                    // Fallback: try to find a GameData in the scene and update it
                     GameData gd = FindObjectOfType<GameData>();
                     if (gd != null)
                         gd.playerPosition = pos;
@@ -92,22 +105,67 @@ public class PlayerMove : MonoBehaviour
                 logTimer = logInterval;
             }
         }
+
+        // Play/stop walking sound based on movement every frame (not tied to logging)
+        if (walkingSound != null)
+        {
+            if (isMoving)
+            {
+                if (!isWalkingSoundPlaying)
+                {
+                    if (walkingClip != null)
+                    {
+                        walkingSound.clip = walkingClip;
+                    }
+                    walkingSound.loop = true;
+                    walkingSound.Play();
+                    isWalkingSoundPlaying = true;
+                }
+            }
+            else
+            {
+                if (isWalkingSoundPlaying)
+                {
+                    walkingSound.Stop();
+                    isWalkingSoundPlaying = false;
+                }
+            }
+        }
+
+        // Check if the C key is pressed
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (GameData.Instance != null)
+            {
+                // Use GameData's API to add points (safer than calling a non-existent method)
+                GameData.Instance.AddPoints(25);
+            }
+            else
+            {
+                Debug.LogWarning("GameData.Instance is null. Cannot add XP.");
+            }
+        }
     }
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        if (rb != null)
+            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 
     private void EnemyEncounter(bool isMoving)
     {
-        if (encounterCooldown <= 0 && isMoving &&
-            Physics2D.OverlapCircle(transform.position, 0.2f, LayerM) != null)
+        if (encounterCooldown <= 0f && isMoving)
         {
-            if (Random.Range(1, 101) <= 1)
+            // use Vector2 for the overlap call
+            if (Physics2D.OverlapCircle((Vector2)transform.position, 0.2f, LayerM) != null)
             {
-                encounterCooldown = encounterCooldownTime;
-                StartEncounter();
+                // 1% chance
+                if (Random.Range(1, 101) <= 1)
+                {
+                    encounterCooldown = encounterCooldownTime;
+                    StartEncounter();
+                }
             }
         }
     }

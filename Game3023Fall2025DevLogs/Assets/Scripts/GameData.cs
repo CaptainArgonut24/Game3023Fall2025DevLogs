@@ -6,6 +6,7 @@ public class GameData : MonoBehaviour
 {
     public static GameData Instance;
 
+
     private void Awake()
     {
         // Singleton so only 1 GameData exists
@@ -117,4 +118,25 @@ public class GameData : MonoBehaviour
 
         Debug.Log("Added: " + item + " x" + amount);
     }
+
+    public void AddPoints(int i)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void UnlockAbility(string abilityID)
+    {
+        switch (abilityID)
+        {
+            case "FireBlast": Unlocked_FireBlast = true; break;
+            case "IceBeam": Unlocked_IceBeam = true; break;
+            case "ThunderStrike": Unlocked_ThunderStrike = true; break;
+            case "WaterPulse": Unlocked_WaterPulse = true; break;
+            case "RockSmash": Unlocked_RockSmash = true; break;
+            case "DarkWave": Unlocked_DarkWave = true; break;
+            case "SolarBeam": Unlocked_SolarBeam = true; break;
+            case "PsychicBurst": Unlocked_PsychicBurst = true; break;
+        }
+    }
+
 }
